@@ -1,26 +1,26 @@
-<div class =" flex justify-center w-full">
-	<div>
-		<h2 class="w-full text-4xl text-center">Log in</h2>
+<section class="flex justify-center mx-4">
+	<div class="w-full md:w-1/2">
+		<h2 class=" block w-full text-3xl">Log in</h2>
 		<br>
-		<div class="w-full">
 			<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-			  <div class="form-inputs w-full">
-			    <div class=" mb-1"><%= f.input :email, required: false, autofocus: true, 
-			    label_html: { class: "block font-bold"},
-			    input_html: { autocomplete: "email ", class: " border border-1 rounded-sm px-4 py-1 w-full border-green-800 focus:border-3 focus:border-blue-700" } %></div>
-			   <div class="my-1"> <%= f.input :password, required: false,
-				label_html: { class: "block font-bold"},
-			        input_html: { class: " border border-1 rounded-sm px-4 py-1 w-full border-green-800 focus:border-3" } %> </div>
+			  <div class="form-inputs">
+<div class=" block mb-3">
+		    		<%= f.input :email,  autofocus: true, label_html: {class: "text-md font-semibold block"}, 
+				input_html: { autocomplete: "email" , class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3"} %>
+		    	</div>
+			<div class="block mb-3">
+				 <%= f.input :password, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label_html: {class: "text-md font-semibold block"},
+			  	input_html: { autocomplete: "new-password" ,class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" } %>
+			</div>
 			    <div class="my-1"><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %> </div>
 			  </div>
 
 			  <div class="form-actions py-2">
-			    <%= f.button :submit, "Log in" , class: "bg-blue-600 px-4 py-2 w-full text-white rounded-md font-bold"%>
+			    <%= f.button :submit, "Log in" , class: "bg-blue-600 px-4 py-2 w-full md:w-2/3 text-white rounded-md font-bold"%>
 			  </div>
 			<% end %>
 			<p class="text-blue-700 font-hairline underline mb-10">
 			<%= render "devise/shared/links" %> </p>
-		</div>
 	</div>
-</div>
+</section>

@@ -1,25 +1,53 @@
-<h2>Sign up</h2>
+<section class="flex justify-center text-gray-900 mx-4">
+	<div class="w-full md:w-1/2">
+		<h2 class="block mb-4 text-3xl font-hairline text-yellow-500">Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+		  <div class="form-inputs">
+		  	<div class = "block mb-3">
+		  		<%= f.input :name, label_html: {class: "text-md font-semibold block"}, 
+		  		input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" } %>
+			</div>
+		   	<div class="block mb-3">
+		   		<%= f.input :surname,label_html: {class: " text-md font-semibold block"} ,
+				input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }%>
+			</div>  
+					    	<div class="block mb-3">
+		    <%= f.input :date_of_birth, required: true,
+				input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md bg-white" }, 
+				label_html: {class: "text-md font-semibold block"} %>
+			</div>    
+		    	<div class=" block mb-3">
+		    		<%= f.input :email, required: true, autofocus: true, label_html: {class: "text-md font-semibold block"}, 
+				input_html: { autocomplete: "email" , class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3"} %>
+		    	</div>
+			<div class="block mb-3">
+				 <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label_html: {class: "text-md font-semibold block"},
+			  	input_html: { autocomplete: "new-password" ,class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" } %>
+			</div>
+			<div class="block mb-3">
+				 <%= f.input :password_confirmation, required: true,input_html: { autocomplete: "new-password", class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }, label_html: {class: "text-md font-semibold block"} %>
+				 
+			</div>
+		    	<div class="block mb-3">
+		    		<%= f.input :region, input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }, label_html: {class: "text-md font-semibold block"} %>
+				
+		    	</div>
+		    	<div class="block mb-3">
+		    		<%= f.input :school, required: true, input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" },label_html: {class: "text-md font-semibold block"} %>
+				 
+		    	</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+		  </div>
 
-<%= render "devise/shared/links" %>
+		  <div class="form-actions">
+		    <%= f.button :submit, "Create account" , class: "bg-blue-700 px-4 py-2 w-full md:w-2/3 text-white rounded-md font-bold"%>
+		  </div>
+		<% end %>
+		<p class="text-blue-700 font-hairline underline mb-10">
+			<%= render "devise/shared/links" %>
+		</p>
+	</div>
+</section>

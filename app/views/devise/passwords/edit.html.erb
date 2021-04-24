@@ -1,4 +1,7 @@
-<h2>Change your password</h2>
+
+
+<section class =" mx-4 ">
+<h2 class="mb-4 font-hairline text-2xl text-green-600 block w-full md:w-1/3">Change your password</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -6,22 +9,21 @@
   <%= f.input :reset_password_token, as: :hidden %>
   <%= f.full_error :reset_password_token %>
 
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
-                required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                label: "Confirm your new password",
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+  <div class="form-inputs mb-2">
+    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+    		label_html: {class: "block font-semibold"},
+                input_html: { autocomplete: "new-password", class: "border border-1 border-gray-900 w-full md:w-1/3 px-4 py-1 rounded-md" } %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+  <div class="form-inputs mb-2">
+    <%= f.input :password_confirmation, label: "Confirm your new password", required: true,
+    		label_html: {class: "block font-semibold"},
+                input_html: { autocomplete: "new-password", class: "border border-1 border-gray-900 w-full md:w-1/3 px-4 py-1 rounded-md" } %>
+  </div>
+  <div class="form-actions mb-4">
+    <%= f.button :submit, "Change my password", class: "bg-blue-600, px-4, py-2, rounded-md, w-full md:w-1/3" %>
   </div>
 <% end %>
-
+<p class="underline font-hairline text-blue-500">
 <%= render "devise/shared/links" %>
+</p>
+</section>
