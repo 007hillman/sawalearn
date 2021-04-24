@@ -70,8 +70,8 @@ Rails.application.configure do
    #:domain => 'myapp.herokuapp.com',  #I've also tried changing this to 'gmail.com'
    :authentication => :plain, # I've also tried changing this to :login
    :enable_starttls_auto => true,
-   :user_name => 'tatawhillman@gmail.com',
-   :password => 'poissonous'
+   :user_name => 'chriskeller@gmail.com',
+   :password => '@Leroyfer2'
  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
