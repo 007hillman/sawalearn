@@ -70,7 +70,7 @@ Rails.application.configure do
    #:domain => 'myapp.herokuapp.com',  #I've also tried changing this to 'gmail.com'
    :authentication => :plain, # I've also tried changing this to :login
    :enable_starttls_auto => true,
-   :user_name => 'chriskeller@gmail.com',
+   :user_name => 'chriskeller619@gmail.com',
    :password => '@Leroyfer2'
  }
 
