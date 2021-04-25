@@ -62,18 +62,6 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "student_app_production"
 
-  config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = {:host => 'sawalearn.herokuapp.com', :protocol => 'http'}
-  config.action_mailer.smtp_settings = {
-   :address => "smtp.gmail.com",
-   :port => 587,
-   #:domain => 'myapp.herokuapp.com',  #I've also tried changing this to 'gmail.com'
-   :authentication => :plain, # I've also tried changing this to :login
-   :enable_starttls_auto => true,
-   :user_name => 'tatawhillman@gmail.com',
-   :password => 'poissonous'
- }
-
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -85,6 +73,9 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = {:host => 'sawalearn.herokuapp.com', :protocol => 'http'}
+ 
   # Log disallowed deprecations.
   config.active_support.disallowed_deprecation = :log
 
