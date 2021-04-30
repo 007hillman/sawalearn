@@ -15,7 +15,25 @@
 
   <body>
 	<%= render 'layouts/navbar' %>
-    <%= yield %>
-	<%= render 'layouts/footer' %>
+	<div class= " grid grid-cols-1 md:grid-cols-5">
+		<div class=" hidden md:block border border-1 border-gray-100"><%= render 'layouts/leftpane' %></div>
+		<div class=" flex">		
+			<div class=" md:hidden ">
+      			<a href="#" id="my-menu" class="block hover:bg-green-300  py-1 px-1 align-middle text-green-500 no-underline   border-blue-400 hover:border-green-400">
+      				<svg viewBox="0 0 100 80" width="30" height="30">
+        				<rect y="20" width="100" height="10"></rect>
+        				<rect y="40" width="100" height="10"></rect>
+        				<rect y="60" width="100" height="10"></rect>
+        				<rect y="80" width="100" height="10"></rect>
+      				</svg> </a>
+      			</div>
+		</div>		
+		<div class=" col-span-3 border border-1 border-gray-100"><%= yield %></div>
+    		<div class="border border-1 border-gray-100"><%= render 'layouts/rightpane' %></div>
+    	</div>
+	
   </body>
+  
+
 </html>
+

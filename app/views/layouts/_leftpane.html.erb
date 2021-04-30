@@ -1,0 +1,51 @@
+<section class = " flex flex-col min-h-screen">
+	<div>
+	<div class = " flex pt-5">
+		<div class=" w-10 h-10 md:w-20 md:h-20 rounded-full  bg-blue-400" style="">
+			<div class="font-bold text-6xl text-white "> <%= current_user.user_initial %> </div>
+		</div>
+		<div class = " items-center pl-4 pt-2 ">
+			<p class="font-semibold text-md"> <%= current_user.full_name %> </p>
+			<p class="text-sm font-hairline"> <%= current_user.email %></p>
+		</div>
+	</div>
+	<div class="mt-5">
+		<a href="" ><div class="text-center  mx-2 mb-2 bg-green-300 rounded-md text-white font-bold py-2 px-4 text-sm">Continue Lecture </div></a> 
+		<a href="<%= new_subject_path %>" ><div class="text-center hover:text-blue-400 text-sm border mx-2 border-2 font-semibold px-4 py-2 rounded-md ">New Lecture </div></a>
+	</div>
+<div class="w-full text-md flex-grow items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20" id="nav-content">
+				<ul class="flex flex-row md:flex-col  px-4 md:px-4">
+					<li class="mr-6 my-2 md:my-0">
+                        <a href="/" id="home" class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-green-300  border-0 hover:border-b-2  hover:border-blue-400">
+                            <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 ">Home</span>
+                        </a>
+                    </li>
+					<li class="mr-6 my-2 md:my-0">
+                        <a href="activities" class="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-green-300   hover:border-pink-400">
+                            <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 ">Activities</span>
+                        </a>
+                    </li>
+                    <li class="mr-6 my-2 md:my-0">
+                        <a href="/chat" class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-green-300 hover:border-purple-400">
+                            <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 "> Chat
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mr-6 my-2 md:my-0">
+                        <a href="about" class="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-green-300   hover:border-red-400">
+                            <i class="fa fa-question-circle fa-fw mr-3"></i><span class="pb-1 md:pb-0 ">About</span>
+                        </a>
+                    </li>
+				</ul>
+				
+
+				
+			</div>
+	</div>
+	<div class="flex-grow"></div>
+  
+	<%= render "layouts/footer" %>		
+
+</section>
+
+

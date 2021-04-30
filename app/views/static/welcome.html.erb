@@ -1,2 +1,26 @@
-<h1>Welcome Hillman</h1>
+<section class ="">
+	
+</section>
+<section class="w-full">
+	<div class=" mx-4 md:mx-10 ">
 
+		<div class=" w-full flex justify-between py-2">
+			<div class="font-bold text-gray-900 text-lg"> All Subjects/Topics </div>
+			<div class=""><button class="border border-2 border-gray-200 px-4 py-1">Sort</button> </div>
+		</div>
+	</div> <hr>
+
+	<div class=" block  mt-4">
+		<!-- loop through all the subjects and display them -->
+		<% @subject.each do |subject| %>
+			<div class="mb-2 px-10">
+			<p class="font-semibold mb-1"> <%= subject.name %> </p>	
+			<div class="flex flex-row"> 
+				<a href="" > <div class="text-green-300 mr-2 px-4 rounded-sm border border-1 border-green-300">Take subject</div></a>
+				<a href=""> <div class="text-gray-500 mr-2 px-4 rounded-sm border border-1 border-gray-500 ">Create lecture</div></a>
+				 <div class="text-red-400 mr-2 px-4 rounded-sm border border-1 border-gray-500 "><%= link_to "Delete subject" , subject_url(subject), method: :delete %></div>				
+			</div>
+			<hr>
+		<% end %>
+	</div>
+</section>
