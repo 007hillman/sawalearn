@@ -27,6 +27,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
+	Activity.create(name: "Created lesson", description: "You just created the lesson : " + @lesson.name )
         format.html { redirect_to static_welcome_url , notice: "Lesson was successfully created." }
         format.json { render :show, status: :created, location: @lesson }
       else
