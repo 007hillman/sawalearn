@@ -17,7 +17,7 @@
 						input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }%>
 					</div>  
 							    	<div class="block mb-3">
-				    <%= f.input :date_of_birth, required: true,
+				    <%= f.input :date_of_birth ,start_year: Date.today.year - 70, end_year: Date.today.year, required: true,
 						input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md bg-white" }, 
 						label_html: {class: "text-md font-semibold block"} %>
 					</div>    
