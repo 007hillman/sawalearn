@@ -13,6 +13,8 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 #use simple form gem
 gem 'simple_form'
+#well finally decided to use webpack :(
+gem 'webpacker', '~> 3.5'
 #using device for authentication
 gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

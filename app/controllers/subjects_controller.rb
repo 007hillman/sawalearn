@@ -25,7 +25,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-	Activity.create(name: "subject creation", description: "You created a new subject")
+	Activity.create(name: "subject creation", description: "You created the subject" + @subject.name)
         format.html { redirect_to static_welcome_path , notice: "Subject was successfully created." }
         format.json { render :show, status: :created, location: @subject }
       else
