@@ -20,7 +20,7 @@
                 <li> <%= link_to "Sign in", new_user_session_path, class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
                 <li><%= link_to "Create account" , new_user_registration_path , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %></li>
                 <% else %>
-                <li> <%= link_to "Account info", edit_user_registration_url(id: current_user.id)  , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
+                <li> <%= link_to "Account info", static_info_url(id: current_user.id)  , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
                 <li><a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Notifications</a></li>
                 <li><hr class="border-t mx-2 border-gray-400"></li>
                 <li class="bg-white"> <%= link_to "Logout", destroy_user_session_url , :method => "delete" , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>

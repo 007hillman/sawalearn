@@ -1,0 +1,11 @@
+
+<section class="flex flex-col justify-center content-center">
+<h1 class =" text-center font-hairline mt-5 text-2xl">New Lesson</h1>
+        <div class="w-2/3 text-lg mx-20 px-10 pt-10 ">
+                <div class=" ">
+                        <%= render 'form', lesson: @lesson %>
+                </div>
+                <%= link_to 'Back', static_welcome_path %>
+        </div>
+</section>
+

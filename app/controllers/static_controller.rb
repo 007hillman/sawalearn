@@ -13,4 +13,8 @@ class StaticController < ApplicationController
   def achievements
 	 @activity = Activity.all
   end
+  def info
+	@activity = Activity.all
+	@user = User.find(params[:id])
+  end
 end

@@ -1,0 +1,29 @@
+<section class =" mt-10 px-5">
+	<h1 class="text-center font-bold text-xl block "> <%= @user.name + "'s" %> account info </h1>
+	<div class="text-center mt-4">
+		<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class=""><span class="font-semibold">Names : </span></div>
+			<div class="text-left"><%= @user.name + " " + @user.surname %></div>
+		</div>
+				<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class=""><span class="font-semibold">Email : </span></div>
+			<div class="text-left"> <%= @user.email %> </div>
+		</div>
+				<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class=""><span class="font-semibold">Date of birth : </span></div>
+			<div class="text-left"><%= @user.date_of_birth %> </div>
+		</div>
+				<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class=""><span class="font-semibold">Region : </span></div>
+			<div class="text-left"><%= @user.region %></div>
+		</div>
+				<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class=""><span class="font-semibold">School : </span></div>
+			<div class="text-left"><%= @user.school%></div>
+		</div>
+		
+		<div class="mt-5">
+			<%= link_to "Edit account info", edit_user_registration_path , class: "bg-green-300 rounded-md px-4 py-2 border border-1 border-green-400 hover:text-green-300" %>
+		</div>
+	</div>
+</section>

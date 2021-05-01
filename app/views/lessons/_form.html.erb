@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@lesson) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+<div class="form-inputs mb-4 ">
+    <%= f.input :name , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-md" } %>
+	 
+ </div>
+
+  <div class="form-actions">
+    <%= f.button :submit ,class: "py-1 px-4 rounded-md bg-blue-400 text-white font-semibold text-sm "%>
+  </div>
+
+   
+
+<% end %>
