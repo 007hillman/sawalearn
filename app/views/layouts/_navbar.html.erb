@@ -1,6 +1,6 @@
 <nav class=" px-4 md:px-0 text-green-800 font-hairline text-lg">
 	<div class="flex justify-between bg-green-400 ">
-		<div class = " ml-4 font-bold text-gray-100 text-2xl">Sawa Learn </div>
+		<div class = " ml-4 font-bold text-white text-2xl">Sawa Learn </div>
 				<div class="relative px-4 py-1 md:pr-0 w-1/2">
                     <input type="search" placeholder="Search" class="w-full transition border border-green-800 focus:outline-none focus:border-gray-600 rounded py-1 px-2 pl-10 appearance-none leading-normal">
                     <div class="absolute search-icon" style="top: 0.375rem;left: 1.75rem;">
@@ -23,7 +23,7 @@
                 <li> <%= link_to "Account info", edit_user_registration_url(id: current_user.id)  , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
                 <li><a href="#" class="px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline">Notifications</a></li>
                 <li><hr class="border-t mx-2 border-gray-400"></li>
-                <li> <%= link_to "Logout", destroy_user_session_url , :method => "delete" , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
+                <li class="bg-white"> <%= link_to "Logout", destroy_user_session_url , :method => "delete" , class: "px-4 py-2 block text-gray-100 hover:bg-gray-800 no-underline hover:no-underline" %> </li>
                 <% end %>
 						  </ul>
 					  </div>
