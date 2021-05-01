@@ -16,7 +16,8 @@
 			<div class="my-2 flex justify-between ">
 			<div class="font-semibold mb-1"> <%= subject.name %> </div>	
 			<div class=""> 
-			<%= link_to "Add lesson", new_lesson_path , class: " text-green-300" %>
+			<%= link_to "Add lesson", new_lesson_path , class: " text-green-300 block mx-2" %>
+			<%= link_to "Show lessons", lessons_path(sub_id: subject.id) , class: "text-blue-400 block mx-2" %>
 				<div class="relative inline-block text-left hidden">
 				<div>
     <button type="button" class="inline-flex  justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true"  onclick="myFunction(this)" >

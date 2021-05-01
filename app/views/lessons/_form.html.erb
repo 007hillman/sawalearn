@@ -5,8 +5,8 @@
 
 
 <div class="form-inputs mb-4 ">
-    <%= f.input :name , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-md" } %>
-	 
+    <%= f.input :name , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-sm" } %>
+	<%= f.association :subject, label_method: :name, value_method: :id, priority: [@sub_name.to_s],include_blank: false, input_html: { class: "border border-2 border-gray-300 rounded-sm"} %>	 
  </div>
 
   <div class="form-actions">

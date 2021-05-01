@@ -3,7 +3,9 @@ class LessonsController < ApplicationController
 
   # GET /lessons or /lessons.json
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.where(subject_id: params[:sub_id])
+    @sub_name = Subject.find( params[:sub_id])
+	puts @sub_name.to_s
   end
 
   # GET /lessons/1 or /lessons/1.json
@@ -25,7 +27,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @lesson, notice: "Lesson was successfully created." }
+        format.html { redirect_to static_welcome_url , notice: "Lesson was successfully created." }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new, status: :unprocessable_entity }
