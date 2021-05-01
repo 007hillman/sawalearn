@@ -12,13 +12,19 @@
                         <div class="my-2 flex justify-between ">
                         <div class="font-semibold mb-1"> <%= lesson.name %> </div>
                         <div class="">
+				<%= link_to "Start", lesson_path(lesson.id) , class: " text-blue-400" %>
+			<% if current_user && current_user.admin %>
                         <%= link_to "Edit", edit_lesson_path(lesson.id) , class: " text-green-300" %>
 			<%= link_to "Delete", lesson_path(lesson.id) ,method: :delete ,  class: " text-red-300" %>
+			<% end %>
 			</div>
 			<hr>
 		</div>
 		<% end %>
 		<% end %>
 <br>
+<% if current_user && current_user.admin %>
 <%= link_to 'New Lesson', new_lesson_path , class: "bg-blue-400 text-white font-semibold px-4 py-2 border border-1 border-blue-600" %>
+<% end %>
  </section>
+
