@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1 or /lessons/1.json
   def show
+	
   end
 
   # GET /lessons/new
@@ -61,6 +62,15 @@ class LessonsController < ApplicationController
     end
   end
 
+	def delete_image
+		image = ActiveStorage::Attachment.find(params[:image_id])
+		if current_user == image.record
+			image.purge
+			redirect_back(fallback_location: request.referer)
+		else
+			redirect_to root_url, notice: "Only the administrator of this site can delete pictures"
+		end
+	end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
@@ -68,7 +78,7 @@ class LessonsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def lesson_params
-      params.require(:lesson).permit(:name, :subject_id)
+    def lesson_params 
+      params.require(:lesson).permit(:name, :subject_id, :lesson_video, lesson_pictures: [])
     end
 end

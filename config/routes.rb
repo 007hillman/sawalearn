@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :lessons
+  resources :lessons do 
+		member do
+            delete 'delete_image/:image_id', action: 'delete_image', as: 'delete_image'
+        end
+  end
   resources :subjects
   devise_for :users
   get 'static/welcome'
