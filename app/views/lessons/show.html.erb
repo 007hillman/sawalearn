@@ -1,12 +1,11 @@
 <section class=" px-10 py-4">
 <p id="notice"><%= notice %></p>
 	<div class= "flex justify-between  py-4">
-		<div> <%= link_to 'Back', lessons_path %></div>
-		<div><%= link_to 'Edit', edit_lesson_path(@lesson) %>  </div>
+		<%= link_to 'Back', lessons_path , class: "font-semibold block px-4 py-1 rounded-md hover:bg-red-200", style: "background-color: #ff3860; color: #fff;" %>
+		<% if current_user && current_user.admin %> <%= link_to 'Edit', edit_lesson_path(@lesson), class: "font-semibold block px-4 py-1 rounded-md bg-green-400 ", style: "color: #fff;" %>   <% end %>
 		<div> Go to activities /> </div>
 	</div>
-	<p> <strong> Name:</strong> <%= @lesson.name %> </p>
-	<p> <strong>Subject:</strong> <%= @lesson.subject_id %> </p>
+	<p class=" text-lg"> <strong>Subject:</strong> <%= current_subject.name %> </p>
 	
 	<!-- the video and the text section of the lesson -->
 	<div class="grid grid-cols-1 md:grid-cols-1 "> <!-- grid so we can put then side by side -->
@@ -16,7 +15,7 @@
 			<% end %>
 			</div>
 			<div class="">
-				<p class="font-bold text-lg "> <%= @lesson.name + " text : " %> </p>
+				<p class="font-bold text-lg "> <%= @lesson.name + " Notes : " %> </p>
 				<p class=""> <%= @lesson.lesson_notes %> </p>
 			</div>
 		<div class="w-full my-4 text-left "> <p class="text-lg font-bold"> Other lesson materials :</p> 

@@ -2,19 +2,22 @@ class StaticController < ApplicationController
 
   def welcome
 	@subject = Subject.all
-	 @activity = Activity.all.last(3)
+	 @activity = active
   end
   def about
-	 @activity = Activity.all.last(3)
+	 @activity = active
   end
   def chat
-	 @activity = Activity.all.last(3)
+	 @activity = active
   end
   def achievements
-	 @activity = Activity.all.last(3)
+	 @activity = active
   end
   def info
-	@activity = Activity.all.last(3)
+	@activity = Activity.active
 	@user = User.find(params[:id])
   end
+	def active
+		Activity.all.order( "created_at DESC" ).first(4)
+	end
 end
