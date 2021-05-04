@@ -3,9 +3,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons or /lessons.json
   def index
-    @lessons = Lesson.all.where(subject_id: params[:sub_id])
-    @sub_name = Subject.find( params[:sub_id])
-	puts @sub_name.to_s
+    @lessons = Lesson.all.where(subject_id: current_subject.id)
   end
 
   # GET /lessons/1 or /lessons/1.json
@@ -16,6 +14,7 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
+	@lesson.subject = Subject.find(current_subject )
   end
 
   # GET /lessons/1/edit
