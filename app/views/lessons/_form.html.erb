@@ -12,15 +12,18 @@
 			<div style="width: 400px; height: 200px">
 				<%= video_tag(url_for(@lesson.lesson_video), style: "width: 100%; height: auto;") %>
 			</div>
-		<% else %>
-			<p> no video was uploaded </p>
 		<% end %>
          <p class="font-bold text-lg mb-2"> Lesson video :  </p>
     	<div class =" border border-2 border-gray-200 px-1 py-1"> <%= f.file_field :lesson_video , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-sm" }  %> </div>
      </div>
+
+	<div class="">
+		<%= f.input :lesson_notes , label_html: {class: " font-bold" }, input_html: {class: "border border-2 border-gray-300 rounded-sm w-full" , rows: 6} %>
+	</div>
+
      <div class="mt-2">
      <p class="font-bold text-lg mb-2"> Lesson pictures :  </p>
-     <div class =" border border-2 border-gray-200 px-1 py-1"><%= f.file_field :lesson_pictures, multiple: true , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-sm" } ,label: "pictures" , hint: "all lesson pictures" %> </div>
+     <div class =" border border-2 border-gray-200 px-1 py-1"><%= f.file_field :lesson_pictures, multiple: true , label_html: {class: " font-bold"}, input_html: {class: "border border-2 border-gray-300 rounded-sm" }  , hint: "Select many" %> </div>
      </div>
     
 	<%= f.association :subject, label_method: :name, value_method: :id, priority: [@sub_name.to_s],include_blank: false, input_html: { class: "border border-2 border-gray-300 rounded-sm w-full bg-white px-4 py-2"} , label_html: {class: "font-bold"}%>	 
