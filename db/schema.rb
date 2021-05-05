@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_123910) do
+ActiveRecord::Schema.define(version: 2021_05_05_131044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(version: 2021_05_05_123910) do
     t.index ["subject_id"], name: "index_lessons_on_subject_id"
   end
 
+  create_table "quizzes", force: :cascade do |t|
+    t.text "question"
+    t.string "option1"
+    t.string "option2"
+    t.string "option3"
+    t.string "option4"
+    t.string "correct_response"
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_quizzes_on_lesson_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -95,4 +108,5 @@ ActiveRecord::Schema.define(version: 2021_05_05_123910) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "users"
   add_foreign_key "lessons", "subjects"
+  add_foreign_key "quizzes", "lessons"
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quizzes
   resources :lessons do 
 		member do
             delete 'delete_image/:image_id', action: 'delete_image', as: 'delete_image'
