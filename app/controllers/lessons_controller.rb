@@ -14,7 +14,7 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
-	@lesson.subject = Subject.find(current_subject )
+	@lesson.subject = Subject.find(current_subject.id )
   end
 
   # GET /lessons/1/edit

@@ -20,4 +20,8 @@ class StaticController < ApplicationController
 	def active
 		Activity.all.order( "created_at DESC" ).first(4)
 	end
+	def landing_page
+		@activity = active
+		render :layout => "empty_layout"
+	end
 end
