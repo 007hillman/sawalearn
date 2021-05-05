@@ -18,7 +18,7 @@ class StaticController < ApplicationController
 	@user = User.find(params[:id])
   end
 	def active
-		Activity.all.order( "created_at DESC" ).first(4)
+		Activity.all.where(user_id: current_user.id).order( "created_at DESC" ).first(4)
 	end
 	def landing_page
 		@activity = active
