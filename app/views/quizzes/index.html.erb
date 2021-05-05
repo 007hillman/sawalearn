@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <section class=" mx-4">
 	<div class= "flex justify-between  py-4">
-		    <%= link_to 'Back', lessons_path , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200" , style: "background-color: #ff3860; color: #fff;" %>
+		    <%= link_to 'Back', lesson_path(current_lesson) , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200" , style: "background-color: #ff3860; color: #fff;" %>
 		    <% if current_user && current_user.admin %> <%= link_to  'New Quiz', new_quiz_path,  class: "font-semibold block rounded-md px-8 py-1 bg-green-400" , style: "color: #ffe ;" %> <% end %>
 		</div>
 
