@@ -15,19 +15,35 @@
 			<% else %>
 				<div class= "w-full mx-4 mt-10 mb-2"><%= @quiz.question %>  </div>
 				<hr>
-				<%= form_for :anything, url: "my_controller/my_action" do |form| %>
-				<div class="mx-4 mt-2 flex flex-row justify-between"> <%= form.collection_radio_buttons :something, [[@quiz.option1 ,@quiz.option1 ],[@quiz.option2,@quiz.option2],[@quiz.option3,@quiz.option3], [@quiz.option4,@quiz.option4]], :first, :last , class: "radio-button"%>
+				<form id="my_radio_box">
+				<div class="mx-4 mt-2 flex flex-row justify-between"> 
+				
+				    <div ><input type="radio" name="my_options" value= <%= @quiz.option1 %>> <%= @quiz.option1 %> </input> </div>
+				    <div ><input type="radio" name="my_options" value= <%= @quiz.option2 %>> <%= @quiz.option2 %>	</input></div>
+				    <div ><input type="radio" name="my_options" value= <%= @quiz.option3 %>> <%= @quiz.option3 %> </input></div>
+				    <div ><input type="radio" name="my_options" value= <%= @quiz.option4 %>> <%= @quiz.option4 %> </input></div>
+				
 				</div>
-				<% end %>
+			</form>
 			<% end %>
 	<br>
-	<div class=" text-right mx-4"> 
-		<%= link_to "Next" , quiz_path( next_quiz), class: "bg-blue-600 font-semibold rounded-md px-8 py-1 ", style: "color: white;" %> </div>
+	<div class=" text-right flex justify-between mx-4"> 
+		<p id="btn" class="block font-semibold cursor-pointer rounded-md px-8 py-1 text-blue-600 hover:bg-blue-200"> verify answer</p>
+		<%= link_to "Next" , quiz_path( next_quiz), class: " block bg-blue-400 font-semibold rounded-md px-8 py-1 ", style: "color: white;" %> </div>
 </section>
 
 <script >
-$(document).on('change','.radio-button:radio', function() {
-    console.log("you clicked the radion");
-});
+$(document).ready(function(){
+        $('#my_radio_box').change(function(){
+            selected_value = $("input[name='my_options']:checked").val();
+            $('#btn').click(function(){
+            	if (selected_value == "<%= escape_javascript @quiz.correct_response %>") {
+            		alert("correct answer ");
+            		} else {
+            		alert("wrong answer, sorry!!!");
+            		}
+            });
+        });
+    });
 
 </script>
