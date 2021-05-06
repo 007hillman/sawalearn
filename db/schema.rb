@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_131044) do
+ActiveRecord::Schema.define(version: 2021_05_05_191509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 2021_05_05_131044) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_lesson_quizzes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.bigint "quiz_id", null: false
+    t.boolean "completed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_user_lesson_quizzes_on_lesson_id"
+    t.index ["quiz_id"], name: "index_user_lesson_quizzes_on_quiz_id"
+    t.index ["user_id"], name: "index_user_lesson_quizzes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,4 +121,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_131044) do
   add_foreign_key "activities", "users"
   add_foreign_key "lessons", "subjects"
   add_foreign_key "quizzes", "lessons"
+  add_foreign_key "user_lesson_quizzes", "lessons"
+  add_foreign_key "user_lesson_quizzes", "quizzes"
+  add_foreign_key "user_lesson_quizzes", "users"
 end

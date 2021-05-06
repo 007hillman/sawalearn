@@ -3,22 +3,60 @@
 	<div class= "flex justify-between  py-4">
 		<%= link_to 'Back', lessons_path , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200", style: "background-color: #ff3860; color: #fff;" %>
 		<% if current_user && current_user.admin %> <%= link_to 'Edit', edit_lesson_path(@lesson), class: "font-semibold block px-8 py-1 rounded-md bg-green-400 ", style: "color: #fff;" %>   <% end %>
-		<%= link_to " Go to Quizzes" , quizzes_path(less_id: @lesson.id) , class: "font-semibold  block px-8 py-1 rounded-md bg-blue-400 ", style: "color: #fff;" %> 
+		<% if check_quiz.empty? %>
+			<% if current_user.admin %>
+				<%= link_to "Create quiz",new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
+			<% else %>
+				<div class=" "> Go to Quizzes  </div>
+			<% end %>
+		<% else %>
+			<%= link_to " Go to Quizzes" , quiz_path() , class: "font-semibold  block px-8 py-1 rounded-md bg-blue-400 ", style: "color: #fff;" %> 
+		<% end %>
+		<% if check_for_restart %>
+                <%= link_to "Restart", quiz_restart_url %>
+            <% end %>
 	</div>
-	<p class=" text-lg"> <strong>Subject:</strong> <%= current_subject.name %> </p>
-	
-	<!-- the video and the text section of the lesson -->
-	<div class="grid grid-cols-1 md:grid-cols-1 "> <!-- grid so we can put then side by side -->
-		<div class=" w-full"> 
+	<div class="grid grid-cols-1 md:grid-cols-1 "> 
+		<div class="flex justify-between border border-2 border-gray-300 px-2 hover:bg-gray-100 vid_but ">
+			<div class="font-semibold text-lg">Videos</div>
+			<div class="  pr-1 ">
+				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+
+				   						</svg>
+			</div>
+
+		</div>
+					<div class=" w-full hidden vid_pane"> 
 			<% if @lesson.lesson_video.attached? %>
 			<%= video_tag(url_for(@lesson.lesson_video), style: "width: 100% ; height: auto; ", controls: "" ) %>  
 			<% end %>
 			</div>
-			<div class="">
-				<p class="font-bold text-lg "> <%= @lesson.name + " Notes : " %> </p>
+			
+			<div class="flex justify-between border border-2 border-gray-300 px-2 note_but hover:bg-gray-100">
+			<div class="font-semibold text-lg"><p class="font-bold text-lg "> <%= "Notes on : " + @lesson.name  %> </p></div>
+			<div class="  pr-1 ">
+				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+
+				   						</svg>
+			</div>
+
+		</div>
+			
+			<div class="hidden notes_pane">
 				<p class=""> <%= @lesson.lesson_notes %> </p>
 			</div>
-		<div class="w-full my-4 text-left "> <p class="text-lg font-bold"> Other lesson materials :</p> 
+			
+			<div class="flex justify-between border border-2 border-gray-300 px-2 hover:bg-gray-100 other_but">
+			<div class="font-semibold text-lg"><p class="text-lg font-bold"> Other lesson materials :</p> </div>
+			<div class="  pr-1 ">
+				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+				   						</svg>
+			</div>
+		</div>
+		<div class="w-full my-4 text-left hidden pic_pane"> 
 			<p class=" text-md font-semibold"> Pictures : </p>
 		</div>
 		<div class="w-full grid grid-cols-1 md: grid-cols-3"> 
@@ -28,3 +66,22 @@
 		</div>
 	</div>
 </section>
+ <script>
+$(function() {
+    $('.vid_but').on(' click', function() {
+        $('.vid_pane').toggleClass('hidden');
+         
+    });
+    
+    $('.note_but').on(' click', function() {
+        $('.notes_pane').toggleClass('hidden');
+         
+    });
+    
+        $('.other_but').on(' click', function() {
+        $('.pic_pane').toggleClass('hidden');
+         
+    });
+});
+
+</script>

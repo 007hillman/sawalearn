@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :subjects
   devise_for :users
+  get 'quiz/restart', to: 'quizzes#restart'
   get 'static/welcome', to: 'static#welcome'
   get 'users/about', to: 'static#about'
   get '/about', to: 'static#about'

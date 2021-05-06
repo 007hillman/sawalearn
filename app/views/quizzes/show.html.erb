@@ -1,39 +1,33 @@
+
+
 <p id="notice"><%= notice %></p>
+<section class=" ">
+	<div class= "flex justify-between  px-2 border bordder-2 border-gray-200">
+		    <%= link_to 'Back', lesson_path(current_lesson) , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200" , style: "background-color: #ff3860; color: #fff;" %>
+		    <% if current_user && current_user.admin %> 
+			<%= link_to  'New Quiz', new_quiz_path,  class: "font-semibold block rounded-md px-8 py-1 bg-green-400" , style: "color: #ffe ;" %> 
+			<%= link_to 'Edit', edit_quiz_path(@quiz) %> 
+			<% end %>
+		</div>
 
-<p>
-  <strong>Question:</strong>
-  <%= @quiz.question %>
-</p>
+			<% if @quiz ==  nil %>
+			<p class=""> No quiz created yet </p>
+			<% else %>
+				<div class= "w-full mx-4 mt-10 mb-2"><%= @quiz.question %>  </div>
+				<hr>
+				<%= form_for :anything, url: "my_controller/my_action" do |form| %>
+				<div class="mx-4 mt-2 flex flex-row justify-between"> <%= form.collection_radio_buttons :something, [[@quiz.option1 ,@quiz.option1 ],[@quiz.option2,@quiz.option2],[@quiz.option3,@quiz.option3], [@quiz.option4,@quiz.option4]], :first, :last , class: "radio-button"%>
+				</div>
+				<% end %>
+			<% end %>
+	<br>
+	<div class=" text-right mx-4"> 
+		<%= link_to "Next" , quiz_path( next_quiz), class: "bg-blue-600 font-semibold rounded-md px-8 py-1 ", style: "color: white;" %> </div>
+</section>
 
-<p>
-  <strong>Option1:</strong>
-  <%= @quiz.option1 %>
-</p>
+<script >
+$(document).on('change','.radio-button:radio', function() {
+    console.log("you clicked the radion");
+});
 
-<p>
-  <strong>Option2:</strong>
-  <%= @quiz.option2 %>
-</p>
-
-<p>
-  <strong>Option3:</strong>
-  <%= @quiz.option3 %>
-</p>
-
-<p>
-  <strong>Option4:</strong>
-  <%= @quiz.option4 %>
-</p>
-
-<p>
-  <strong>Correct response:</strong>
-  <%= @quiz.correct_response %>
-</p>
-
-<p>
-  <strong>Lesson:</strong>
-  <%= @quiz.lesson_id %>
-</p>
-
-<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %>
+</script>

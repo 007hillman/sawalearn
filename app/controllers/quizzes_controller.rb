@@ -1,13 +1,26 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: %i[ show edit update destroy ]
+  before_action :set_quiz, only: %i[ edit update destroy ]
 
   # GET /quizzes or /quizzes.json
   def index
     @quizzes = Quiz.all.where(lesson_id: current_lesson.id)
   end
-
+	def restart
+	UserLessonQuiz.purge(current_lesson.id)
+	session[:quiz_index] = 0
+	redirect_to lesson_path(id: current_lesson.id)
+	end
   # GET /quizzes/1 or /quizzes/1.json
   def show
+		@quiz = Quiz.where(lesson_id: current_lesson.id)[session[:quiz_index].to_i]
+		if @quiz == nil
+			session[:quiz_index] = 0
+			redirect_to lesson_path(current_lesson)
+		else
+			if UserLessonQuiz.check_presence(@quiz.id).empty?
+				UserLessonQuiz.create(user_id: current_user.id, lesson_id: current_lesson.id, quiz_id: @quiz.id)
+			end
+		end
   end
 
   # GET /quizzes/new

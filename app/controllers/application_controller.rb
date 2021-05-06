@@ -16,8 +16,22 @@ before_action :update_allowed_parameters, if: :devise_controller?
         end
         Lesson.find(session[:less_id_s])
     end
+	
+	def next_quiz
+		current_index = UserLessonQuiz.where(lesson_id: current_lesson.id ).count
+		session[:quiz_index] = current_index
+		return current_index
+	end
+	
+	def check_quiz
+		Quiz.where(lesson_id: current_lesson.id)
+	end
 
-helper_method :current_subject, :current_lesson
+	def check_for_restart
+		UserLessonQuiz.where(lesson_id: current_lesson.id).first
+	end
+
+helper_method :current_subject, :current_lesson, :next_quiz, :check_for_restart, :check_quiz
 	protected 
   def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :surname, :email, :password,:password_confirmation,:gender, :region, :school, :date_of_birth)}
