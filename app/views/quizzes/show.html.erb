@@ -7,6 +7,7 @@
 		    <% if current_user && current_user.admin %> 
 			<%= link_to  'New Quiz', new_quiz_path,  class: "font-semibold block rounded-md px-8 py-1 bg-green-400" , style: "color: #ffe ;" %> 
 			<%= link_to 'Edit', edit_quiz_path(@quiz) %> 
+			<%= link_to "Delete quiz" , quiz_path(@quiz), method: :delete , style: "color: #ff3399;" %>
 			<% end %>
 		</div>
 
@@ -15,16 +16,15 @@
 			<% else %>
 				<div class= "w-full mx-4 mt-10 mb-2"><%= @quiz.question %>  </div>
 				<hr>
-				<form id="my_radio_box">
+				<%= form_for :something do |f|%>
 				<div class="mx-4 mt-2 flex flex-row justify-between"> 
 				
-				    <div ><input type="radio" name="my_options" value= <%= @quiz.option1 %>> <%= @quiz.option1 %> </input> </div>
-				    <div ><input type="radio" name="my_options" value= <%= @quiz.option2 %>> <%= @quiz.option2 %>	</input></div>
-				    <div ><input type="radio" name="my_options" value= <%= @quiz.option3 %>> <%= @quiz.option3 %> </input></div>
-				    <div ><input type="radio" name="my_options" value= <%= @quiz.option4 %>> <%= @quiz.option4 %> </input></div>
-				
+					<div ><%= f.radio_button :my_option,  @quiz.option1 %>  <%= @quiz.option1 %> </div>
+					<div ><%= f.radio_button :my_option,  @quiz.option2 %>  <%= @quiz.option2 %> </div>
+					<div ><%= f.radio_button :my_option,  @quiz.option3 %>  <%= @quiz.option3 %> </div>
+					<div ><%= f.radio_button :my_option,  @quiz.option4 %>  <%= @quiz.option4 %> </div>
 				</div>
-			</form>
+				<% end %>
 			<% end %>
 	<br>
 	<div class=" text-right flex justify-between mx-4"> 
@@ -43,13 +43,15 @@
 
 <script >
 $(document).ready(function(){
-        $('#my_radio_box').change(function(){
-            selected_value = $("input[name='my_options']:checked").val();
+        $('input').change(function(e){
+           selected_value = $('form input[type=radio]:checked').val();
 			$('#btn').toggleClass("hidden",false);
+		console.log("<%= escape_javascript @quiz.correct_response_text %>");
+		console.log(selected_value);
             $('#btn').click(function(){
 				$(this).toggleClass("hidden");
 				$('#next-button').toggleClass("hidden");
-            	if (selected_value == "<%= escape_javascript @quiz.correct_response_text %>") {
+            	if (selected_value ==  "<%= escape_javascript @quiz.correct_response_text %>") {
             		$('.correct').toggleClass("hidden");
 					$.ajax({
 						type: "GET",

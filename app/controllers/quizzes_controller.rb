@@ -43,7 +43,7 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to quizzes_path, notice: "Quiz was successfully created." }
+        format.html { redirect_to @quiz, notice: "Quiz was successfully created." }
         format.json { render :show, status: :created, location: @quiz }
 		my_array = []
 		my_array << @quiz.option1
@@ -87,7 +87,7 @@ class QuizzesController < ApplicationController
   def destroy
     @quiz.destroy
     respond_to do |format|
-      format.html { redirect_to quizzes_url, notice: "Quiz was successfully destroyed." }
+      format.html { redirect_to lesson_url(current_lesson), notice: "Quiz was successfully deleted." }
       format.json { head :no_content }
     end
   end

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable    
-   
+   has_many :user_lecture_quiz, dependent: :destroy
    def user_initial
    	name.split("").first + name.split("")[1]
    end 
