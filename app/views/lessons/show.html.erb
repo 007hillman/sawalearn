@@ -7,7 +7,7 @@
 			<% if current_user.admin %>
 				<%= link_to "Create quiz",new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
 			<% else %>
-				<div class=" "> Go to Quizzes  </div>
+				<div class=" "> No quizzes yet  </div>
 			<% end %>
 		<% else %>
 			<%= link_to " Go to Quizzes" , quiz_path() , class: "font-semibold  block px-8 py-1 rounded-md bg-blue-400 ", style: "color: #fff;" %> 

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/achievements', to: 'static#achievements'
   get '/home', to: 'static#welcome'
   get 'static/info', to: 'static#info'
+	get '/passed', to: 'analysis#passed'
+	get '/failed', to: 'analysis#failed'
   root 'static#landing_page'
 default_url_options :host => "www.gmail.com"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

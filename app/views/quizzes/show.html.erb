@@ -51,9 +51,16 @@ $(document).ready(function(){
 				$('#next-button').toggleClass("hidden");
             	if (selected_value == "<%= escape_javascript @quiz.correct_response_text %>") {
             		$('.correct').toggleClass("hidden");
+					$.ajax({
+						type: "GET",
+						url: "/passed",
+						});
             		} else {
             		$('.wrong').toggleClass("hidden");
-
+						$.ajax({
+                        type: "GET",
+                        url: "/failed",
+                        });
             		}
             });
         });

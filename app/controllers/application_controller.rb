@@ -18,9 +18,13 @@ before_action :update_allowed_parameters, if: :devise_controller?
     end
 	
 	def next_quiz
-		current_index = UserLessonQuiz.where(lesson_id: current_lesson.id ).count
-		session[:quiz_index] = current_index
-		return current_index
+		current_index = Quiz.where(lesson_id: current_lesson.id)[UserLessonQuiz.where(lesson_id: current_lesson.id, completed: true ).count]
+		if current_index != nil
+		session[:quiz_index] = current_index.id
+		return current_index.id
+		else 
+		return 0
+		end
 	end
 	
 	def check_quiz
