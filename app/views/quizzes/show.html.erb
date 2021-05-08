@@ -28,19 +28,32 @@
 			<% end %>
 	<br>
 	<div class=" text-right flex justify-between mx-4"> 
-		<p id="btn" class="block font-semibold cursor-pointer rounded-md px-8 py-1 text-blue-600 hover:bg-blue-200"> verify answer</p>
-		<%= link_to "Next" , quiz_path( next_quiz), class: " block bg-blue-400 font-semibold rounded-md px-8 py-1 ", style: "color: white;" %> </div>
+		<div class="flex">
+			<p id="btn" class="block hidden font-semibold cursor-pointer rounded-md px-8 py-1 text-blue-600 hover:bg-blue-200"> verify answer</p>
+			<p class=" wrong text-lg text-red-400 hidden"> Inocrrect response </p>
+        <p class="correct text-lg text-green-400 hidden"> CORRECT RESPONSE!! </p>
+
+		</div>
+		<%= link_to "Next" , quiz_path( next_quiz), class: "hidden block bg-blue-400 font-semibold rounded-md px-8 py-1 ", style: "color: white;", id: "next-button" %> </div>
+		<div class="">	
+		</div>
+
 </section>
+
 
 <script >
 $(document).ready(function(){
         $('#my_radio_box').change(function(){
             selected_value = $("input[name='my_options']:checked").val();
+			$('#btn').toggleClass("hidden",false);
             $('#btn').click(function(){
-            	if (selected_value == "<%= escape_javascript @quiz.correct_response %>") {
-            		alert("correct answer ");
+				$(this).toggleClass("hidden");
+				$('#next-button').toggleClass("hidden");
+            	if (selected_value == "<%= escape_javascript @quiz.correct_response_text %>") {
+            		$('.correct').toggleClass("hidden");
             		} else {
-            		alert("wrong answer, sorry!!!");
+            		$('.wrong').toggleClass("hidden");
+
             		}
             });
         });

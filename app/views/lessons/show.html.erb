@@ -27,7 +27,7 @@
 			</div>
 
 		</div>
-					<div class=" w-full hidden vid_pane"> 
+					<div class=" w-full  vid_pane"> 
 			<% if @lesson.lesson_video.attached? %>
 			<%= video_tag(url_for(@lesson.lesson_video), style: "width: 100% ; height: auto; ", controls: "" ) %>  
 			<% end %>

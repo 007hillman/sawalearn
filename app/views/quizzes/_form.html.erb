@@ -9,7 +9,7 @@
     <%= f.input :option2 , label_html: {class: "font-semibold"}, input_html: {class: "option2 py-1 block w-2/3 border border-2 border-gray-400" }%>
     <%= f.input :option3 , label_html: {class: "font-semibold"}, input_html: {class: "option3 py-1 block w-2/3 border border-2 border-gray-400" }%>
     <%= f.input :option4 , label_html: {class: "font-semibold"}, input_html: {class: "option4 py-1 block w-2/3 border border-2 border-gray-400" }%>
-    <%= f.input :correct_response , label_html: {class: "font-semibold"}, input_html: {class: "block py-1 w-2/3 border border-2 border-gray-400" }%>
+    <%= f.input :correct_response , :collection => ([["option1",1],["option2",2], ["option3", 3],["option4",4]]) , label_html: {class: "font-semibold"}, input_html: {class: " bg-white rounded-md block py-1 w-2/3 border border-2 border-gray-400" }, include_blank: false%>
     <%= f.association :lesson , label_html: {class: " font-semibold"}, input_html: {class: "block py-1  w-full bg-white border border-2 border-gray-400" }, include_blank: false%>
   </div>
 <div class=" flex justify-between mt-5">

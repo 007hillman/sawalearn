@@ -41,6 +41,15 @@ class QuizzesController < ApplicationController
       if @quiz.save
         format.html { redirect_to quizzes_path, notice: "Quiz was successfully created." }
         format.json { render :show, status: :created, location: @quiz }
+		my_array = []
+		my_array << @quiz.option1
+		my_array << @quiz.option2
+		my_array << @quiz.option3
+		my_array << @quiz.option4
+		
+		correct_respo = my_array[@quiz.correct_response.to_i - 1]
+		@quiz.correct_response_text = correct_respo
+		@quiz.save
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @quiz.errors, status: :unprocessable_entity }
@@ -54,6 +63,15 @@ class QuizzesController < ApplicationController
       if @quiz.update(quiz_params)
         format.html { redirect_to @quiz, notice: "Quiz was successfully updated." }
         format.json { render :show, status: :ok, location: @quiz }
+		my_array = []
+        my_array << @quiz.option1
+        my_array << @quiz.option2
+        my_array << @quiz.option3
+        my_array << @quiz.option4
+
+        correct_respo = my_array[@quiz.correct_response.to_i - 1]
+        @quiz.correct_response_text = correct_respo
+        @quiz.save
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @quiz.errors, status: :unprocessable_entity }
