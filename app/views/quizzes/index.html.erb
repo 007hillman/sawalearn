@@ -5,17 +5,20 @@
 		    <% if current_user && current_user.admin %> <%= link_to  'New Quiz', new_quiz_path,  class: "font-semibold block rounded-md px-8 py-1 bg-green-400" , style: "color: #ffe ;" %> <% end %>
 		</div>
 
-	<h1 class="text-center text-xl font-semibold ">Quizzes</h1>
+	<h1 class="text-center text-xl font-semibold ">Results: </h1>
 		<% if @quizzes.empty? %>
 			<p class = "block w-full text-center text-lg"> No Quiz created yet. </p>
 		<% else %>
 			<% @quizzes.each do |quiz| %>
-				<div class= "w-full"><%= quiz.question %>  </div>
-				<div class="w-full grid grid-cols-4">
-					<div class="mx-1"><%= quiz.option1 %> </div>
-					<div class ="mx-1"><%= quiz.option2 %> </div>
-					<div class ="mx-1"> <%= quiz.option3 %> </div>
-					<div class="mx-1"> <%= quiz.option4 %> </div>
+				<div class = "" >
+					<div class= "w-full"><%= quiz.question %>  </div>
+					<div class="w-full grid grid-cols-4">
+						<% if  get_verdict(quiz.id)== "failed" %> 
+							<span class = "text-red-400 font-semibold" > Failed </span>
+						<% else %>
+							<span class="text-green-400 font-semibold">Passed</span>
+						<% end %>
+					</div>
 				</div>
 				<hr >
 			<% end %>

@@ -34,8 +34,11 @@ before_action :update_allowed_parameters, if: :devise_controller?
 	def check_for_restart
 		UserLessonQuiz.where(lesson_id: current_lesson.id).first
 	end
+	def get_verdict (q_id)
+		UserLessonQuiz.where(quiz_id: q_id)[0].verdict
+	end
 
-helper_method :current_subject, :current_lesson, :next_quiz, :check_for_restart, :check_quiz
+helper_method :current_subject, :current_lesson, :next_quiz, :check_for_restart, :check_quiz, :get_verdict
 	protected 
   def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :surname, :email, :password,:password_confirmation,:gender, :region, :school, :date_of_birth)}

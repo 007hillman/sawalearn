@@ -12,16 +12,19 @@ class QuizzesController < ApplicationController
 	end
   # GET /quizzes/1 or /quizzes/1.json
   def show
+	if next_quiz == 0
+          redirect_to quizzes_path
+		session[:quiz_index] = 0
+	else
 		@quiz = Quiz.find(next_quiz)
 		if @quiz == nil
-			session[:quiz_index] = 0
-			@first_q = Quiz.all.where(lesson_id: current_lesson.id).first
-			redirect_to quizzes_path 
+			session[:quiz_index] = 0 
 		else
 			if UserLessonQuiz.check_presence(@quiz.id).empty?
 				UserLessonQuiz.create(user_id: current_user.id, lesson_id: current_lesson.id, quiz_id: @quiz.id)
 			end
 		end
+	end
   end
 
   # GET /quizzes/new
