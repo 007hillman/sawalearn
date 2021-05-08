@@ -18,7 +18,7 @@ before_action :update_allowed_parameters, if: :devise_controller?
     end
 	
 	def next_quiz
-		current_index = Quiz.where(lesson_id: current_lesson.id)[UserLessonQuiz.where(lesson_id: current_lesson.id, completed: true ).count]
+		current_index = Quiz.where(lesson_id: current_lesson.id)[UserLessonQuiz.where(lesson_id: current_lesson.id, completed: true , user_id: current_user.id).count]
 		if current_index != nil
 		session[:quiz_index] = current_index.id
 		return current_index.id
@@ -35,7 +35,7 @@ before_action :update_allowed_parameters, if: :devise_controller?
 		UserLessonQuiz.where(lesson_id: current_lesson.id).first
 	end
 	def get_verdict (q_id)
-		UserLessonQuiz.where(quiz_id: q_id)[0].verdict
+		UserLessonQuiz.where(quiz_id: q_id, user_id: current_user.id, lesson_id: current_lesson.id)[0].verdict
 	end
 
 helper_method :current_subject, :current_lesson, :next_quiz, :check_for_restart, :check_quiz, :get_verdict

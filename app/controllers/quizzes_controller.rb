@@ -4,6 +4,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes or /quizzes.json
   def index
     @quizzes = Quiz.all.where(lesson_id: current_lesson.id)
+	notice: "You have successfully completed this lesson quizzes. You have the option to retake it"
   end
 	def restart
 	UserLessonQuiz.purge(current_lesson.id)
