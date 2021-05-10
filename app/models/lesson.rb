@@ -5,6 +5,7 @@ class Lesson < ApplicationRecord
 	has_many_attached :lesson_pictures, dependent: :destroy
 	has_many :user_lesson_quiz, dependent: :destroy
 
+	has_rich_text :lesson_notes
 #validations
 	
 end

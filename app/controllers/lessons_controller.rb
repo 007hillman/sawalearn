@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons or /lessons.json
   def index
-    @lessons = Lesson.all.where(subject_id: current_subject.id)
+    @lessons = Lesson.all.where(subject_id: current_subject.id).with_rich_text_lesson_notes
   end
 
   # GET /lessons/1 or /lessons/1.json
