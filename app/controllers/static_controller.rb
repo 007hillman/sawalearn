@@ -10,6 +10,10 @@ class StaticController < ApplicationController
   def chat
 	 @activity = active
   end
+	def admin_dash
+		@activity = active
+		render layout: "empty_layout" 
+	end
   def achievements
 	 @activity = active
   end

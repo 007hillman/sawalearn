@@ -76,5 +76,10 @@ fr:
     edit: 
       editing_quiz: "Modification du quiz"
       go_to_quiz: "retourner au quiz"
-
+  dash:
+    number_of_users: "Utilisateurs"
+    number_of_lessons: "Leçons"
+    number_of_subjects: "Cours"
+    number_of_quizzes: "Quiz"
+  
 

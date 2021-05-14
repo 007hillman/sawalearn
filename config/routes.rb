@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 	  get '/home', to: 'static#welcome'
 	  get 'static/info', to: 'static#info'
 		get '/passed', to: 'analysis#passed'
+		get '/dash', to: 'static#admin_dash'
 		get '/failed', to: 'analysis#failed'
 	  get 'static/landing_page', to: 'static#landing_page'
 	  root 'static#landing_page'
