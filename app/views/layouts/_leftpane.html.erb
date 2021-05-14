@@ -2,7 +2,7 @@
 	<div>
 		<div class = " flex pt-5">
 	<% if current_user %>
-		<a href="/" class="block w-10 h-10 md:w-20 md:h-20 rounded-full  bg-blue-400" style="">
+		<a href="<%= root_path(locale: current_user.locale) %>" class="block w-10 h-10 md:w-20 md:h-20 rounded-full  bg-blue-400" style="">
 			<div class="font-semibold text-4xl md:text-6xl text-white "> <%= current_user.user_initial %> </div>
 		</a>
 		<div class = " items-center pl-4 pt-2 ">
