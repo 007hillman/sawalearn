@@ -1,0 +1,80 @@
+
+fr:
+  welcome:  
+    speech: "Une application d'apprentissage interactive pour les étudiants des collèges camerounais"
+    all-subjects: "Tous les cours"
+    sort: "Trier"
+    activity_feed: "Activités"
+    no_activity: "Accun activite"
+    social: "Sociale"
+    add_lesson: "Ajoute un leçon"
+    show_lessons: "Toutes les leçons"
+  general_buttons:  
+    delete: "Supprimer"
+    edit: "Éditer"
+    back: "retourner"
+  navbar:
+    search: "Recherche"
+    hi: "Salut"
+    english: "English"
+    french: "Français"
+    account_info: "informations de compte"
+    login: "Se connecter"
+    sign_up: "Créer un compte"
+    logout: "Se déconnecter"
+  leftpane:
+    new_subject: "créer un cours"
+    home: "Accueil"
+    achievements: "réalisations"
+    chat: "Discussion"
+    about: "A propos"
+  login: 
+    login: "Connexion"
+    login_button: "Ce connecter"
+  signup:
+    sign_up: "Page d'inscription"    
+  subjects:
+    new:
+      new_subject: "Nouveau cours"
+  lesson:
+    show:
+      create_quiz: "créer un quiz"
+      no_quizzes: "pas encore de quiz"
+      next: "Suivante"
+      continue: "Continuez"
+      restart: "Redémarrer"
+      delete_lesson: "Supprimer ce leçons"
+      video: "Vidéo"
+      notes_on: "Notes sur"
+      other_material: "Autres matériels de cours"
+      images: "Des images"
+    index:
+      all_lessons: "Toutes les leçons"
+      delete_lesson: "Supprimer"
+      start: "Commencer"
+      no_lesson: "Aucun cours créé pour ce cours pour le moment"
+      new_lesson: "Créer une leçon"
+    new:
+      submit: "Créer ce leçon"
+      new_lesson: "Nouvelle leçon"
+    edit: 
+      editing_lesson: "Modification de la leçon"
+  quiz:
+    show:
+      new_quiz: "Créer un quiz"
+      delete_quiz: "Supprimer"
+      no_quiz: "aucun quiz n'a encore été créé pour cette leçon"
+      verify: "Vérifier la réponse"
+      correct: "RÉPONSE CORRECTE !!"
+      false: "Réponse incorrecte"
+    index: 
+      results: "Les résultats du : "
+      failed: "Échec"
+      passed: "Réussi"
+    new: 
+      new_quiz: "Création de quiz"
+    edit: 
+      editing_quiz: "Modification du quiz"
+      go_to_quiz: "retourner au quiz"
+
+

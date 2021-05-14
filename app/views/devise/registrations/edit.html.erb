@@ -6,6 +6,10 @@
 		  <div class="form-inputs">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 		  <%= f.error_notification %>
+		<% resource.errors.full_messages.each do |msg| %>
+		       <span class=" text-red-400 font-hairline" ><%= li= msg %> </span>
+                   <% end %>
+
 
 				  <div class="form-inputs">
 				  	<div class = "block mb-3">
@@ -26,16 +30,16 @@
 						input_html: { autocomplete: "email" , class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3"} %>
 				    	</div>
 					<div class="block mb-3">
-						 <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label_html: {class: "text-md font-semibold block"},
+						 <%= f.input :current_password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label_html: {class: "text-md font-semibold block"},
 					  	input_html: { autocomplete: "new-password" ,class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" } %>
-					</div>
-					<div class="block mb-3">
-						 <%= f.input :password_confirmation, required: true,input_html: { autocomplete: "new-password", class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }, label_html: {class: "text-md font-semibold block"} %>
-						 
 					</div>
 				    	<div class="block mb-3">
 				    		<%= f.input :region, input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" }, label_html: {class: "text-md font-semibold block"} %>
 						
+				    	</div>
+				    	<div class="block mb-3">
+				    		<%= f.select :locale, options_for_select([["English","en"],["French","fr"]]),required: true, input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" },label_html: {class: "text-md font-semibold block"} , label_text: "language" %>
+						 
 				    	</div>
 				    	<div class="block mb-3">
 				    		<%= f.input :school, required: true, input_html: { class: "border border-1 border-gray-800 px-4 py-1 rounded-md w-full md:w-2/3" },label_html: {class: "text-md font-semibold block"} %>
@@ -47,6 +51,7 @@
 				  <div class="form-actions mb-4">
 				    <%= f.button :submit, "Update info" , class: "bg-blue-900 px-4 py-2 w-full md:w-2/3 text-white rounded-md font-bold"%>
 				  </div>
+
 				<% end %>
 
 

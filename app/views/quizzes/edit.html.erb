@@ -1,6 +1,11 @@
-<h1>Editing Quiz</h1>
+<section>
+<h1 class="text-center mb-10 text-2xl "><%= t('quiz.edit.editing_quiz') %> </h1>
 
 <%= render 'form', quiz: @quiz %>
 
-<%= link_to 'Show', @quiz %> |
-<%= link_to 'Back', quizzes_path %>
+<%= link_to t('quiz.edit.go_to_quiz'), @quiz %> |
+<%= link_to t('general_buttons.back') , quizzes_path %>
+
+</div>
+
+</section>

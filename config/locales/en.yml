@@ -1,33 +1,79 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome:
+    speech: "An interactive learning app for students in Cameroon colleges"
+    all_subjects: "All Subjects"
+    sort: "Sort"
+    activity_feed: "Activity feed"
+    no_activity: "No activity yet"
+    social: "Social"
+    add_lesson: "Add lesson"
+    show_lessons: "Show lessons"
+  general_buttons: 
+    delete: "Delete"
+    edit: "Edit"
+  leftpane:
+    new_subject: "New Subject"
+    home: "Home"
+    achievements: "Achievements"
+    chat: "Chat"
+    about: "About"
+  navbar:
+    search: "Search"
+    hi: "Hi"
+    english: "English"
+    french: "Français"
+    account_info: "Account info"
+    login: "Login"
+    sign_up: "Create account"
+    logout: "Logout"
+  login:
+    login: "Log in"
+    login_button: "already have an account?"
+  signup:
+    sign_up: "Sign up"   
+  subjects:
+    new:
+      new_subject: "New subject"
+  lesson:
+    show:
+      create_quiz: "Create quiz"
+      no_quizzes: "No quizzes yet"
+      next: "Next"
+      continue: "Continue"
+      restart: "Restart evaluation"
+      delete_lesson: "Delete lesson"
+      video: "Video"
+      notes_on: "Notes on"
+      other_material: "Other lesson materials"
+      images: "Pictures"
+    index: 
+      all_lessons: "All lessons"
+      delete_lesson: "Delete"
+      start: "Start"
+      no_lesson: "No lessons created for this subject yet"
+      new_lesson: "New lesson"
+    new:
+      submit: "Create lesson"
+      new_lesson: "New lesson"
+    edit: 
+      editing_lesson: "Editing lesson" 
+  quiz:
+    show: 
+      new_quiz: "Create quiz"
+      delete_quiz: "Delete quiz"
+      no_quiz: "No quiz has been created for this lesson yet"
+      verify: "Check response"
+      correct: "CORRECT RESPONSE !!"
+      false: "Incorrect response :("
+    index:
+      results: "Results of : "
+      failed: "Failed"
+      passed: "Passed"
+    new: 
+      new_quiz: "Create quiz"
+    edit: 
+      editing_quiz: "Edit quiz"
+      go_to_quiz: "back to quiz"
+
+      

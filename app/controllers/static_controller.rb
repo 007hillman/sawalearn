@@ -14,7 +14,7 @@ class StaticController < ApplicationController
 	 @activity = active
   end
   def info
-	@activity = Activity.active
+	@activity = active
 	@user = User.find(params[:id])
   end
 	def active

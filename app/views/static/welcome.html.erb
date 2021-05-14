@@ -6,8 +6,8 @@
 	<div class=" mx-4 md:mx-10 ">
 
 		<div class=" w-full flex justify-between py-2">
-			<div class="font-bold text-gray-900 text-lg"> All Subjects </div>
-			<div class=""><button class="border border-2 border-gray-200 px-4 py-1">Sort</button> </div>
+			<div class="font-bold text-gray-900 text-lg"> <%= t('welcome.all-subjects') %> </div>
+			<div class=""><button class="border border-2 border-gray-200 px-4 py-1"><%= t('welcome.sort')%></button> </div>
 		</div>
 	</div> <hr>
 
@@ -29,9 +29,9 @@
 			     						<div class=" sub  hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 			    							<div class="py-1  " role="none ">
 											<div class =""><% if current_user && current_user.admin %>
-												<%= link_to "Add lesson", new_lesson_path(sub_id: subject.id) , class: " text-green-300 block mx-2" %>
+												<%= link_to t('welcome.add_lesson'), new_lesson_path(sub_id: subject.id) , class: " text-green-300 block mx-2" %>
 											<% end %> </div>
-											<div class =""> <%= link_to "Show lessons", lessons_path(sub_id: subject.id) , class: "text-blue-400 block mx-2" %><div>
+											<div class =""> <%= link_to t('welcome.show_lessons'), lessons_path(sub_id: subject.id) , class: "text-blue-400 block mx-2" %><div>
 			    							</div>
 			  						</div>		      
 		    					</button>

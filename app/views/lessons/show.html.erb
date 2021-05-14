@@ -5,38 +5,37 @@
 	<% else %>
 	<div class= "  grid grid-cols-3 py-4">
 	<% end %>
-		<%= link_to 'Back', lessons_path , class: "font-semibold block px-8 py-1  hover:bg-red-200", style: "border: 2px solid #ff3860; color: #ff3860;" %>
-		<% if current_user && current_user.admin %> <%= link_to 'Edit', edit_lesson_path(@lesson), class: "font-semibold block px-8 py-1 border border-4 border-green-400 text-center hover:bg-green-200", style: "color: #22ab46;" %>   <% end %>
+		<%= link_to t('general_buttons.back'), lessons_path , class: "font-semibold block px-8 py-1  hover:bg-red-200", style: "border: 2px solid #ff3860; color: #ff3860;" %>
+		<% if current_user && current_user.admin %> <%= link_to t('general_buttons.edit'), edit_lesson_path(@lesson), class: "font-semibold block px-8 py-1 border border-4 border-green-400 text-center hover:bg-green-200", style: "color: #22ab46;" %>   <% end %>
 		<% if check_quiz.empty? %>
 			<% if current_user.admin %>
-				<%= link_to "Create quiz",new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
+				<%= link_to t('lessons.show.create_quiz'),new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
 			<% else %>
-				<div class=" "> No quizzes yet  </div>
+				<div class=" "> <%= t('lessons.show.no_quizzes') %>  </div>
 			<% end %>
 		<% else %>
 			<% if !check_for_restart %>
-				<%= link_to " Next" , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
+				<%= link_to t('lessons.show.next') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
 			<%else%>
-				<%= link_to " Continue" , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
+				<%= link_to t('lessons.show.continue') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
 			<%end%>	
 		<% end %>
 	</div>
 	<div class=" grid md:grid-cols-2 grid-cols-1">
 	 <% if check_for_restart %>
-                <%= link_to "Restart", quiz_restart_url , class: "block w-full md:w-1/2 border border-2 border-gray-700 text-center"%>
+                <%= link_to t('lessons.show.restart'), quiz_restart_url , class: "block w-full md:w-1/2 border border-2 border-gray-700 text-center"%>
             <% end %>
 	<% if current_user && current_user.admin %>
-		<%= link_to "Delete lesson", lesson_path(@lesson), method: :delete, class: "" %>
+		<%= link_to t('lessons.show.delete_lesson'), lesson_path(@lesson), method: :delete, class: "" %>
 	<%end%>
 	</div>
 
 	<div class="grid  md:grid-cols-1 "> 
 		<div class="flex justify-between border border-2 border-gray-300 px-2 hover:bg-gray-100 vid_but ">
-			<div class="font-semibold text-lg">Videos</div>
+			<div class="font-semibold text-lg"><%= t('lessons.show.video') %></div>
 			<div class="  pr-1 ">
 				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-
 				   						</svg>
 			</div>
 
@@ -48,7 +47,7 @@
 			</div>
 			
 			<div class="flex justify-between mt-10  border border-2 border-gray-300 px-2 note_but hover:bg-gray-100">
-			<div class="font-semibold text-lg"><p class="font-bold text-lg "> <%= "Notes on : " + @lesson.name  %> </p></div>
+			<div class="font-semibold text-lg"><p class="font-bold text-lg "> <%= t('lessons.show.notes_on') + " : " + @lesson.name  %> </p></div>
 			<div class="  pr-1 ">
 				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -63,7 +62,7 @@
 			</div>
 			
 			<div class="flex justify-between mt-10 border border-2 border-gray-300 px-2 hover:bg-gray-100 other_but">
-			<div class="font-semibold text-lg"><p class="text-lg font-bold"> Other lesson materials :</p> </div>
+			<div class="font-semibold text-lg"><p class="text-lg font-bold"> <%= t('lessons.show.other_material') %> :</p> </div>
 			<div class="  pr-1 ">
 				<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 										<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -72,7 +71,7 @@
 		</div>
 		<br> <br>
 		<div class="w-full my-4 text-left  pic_pane"> 
-			<p class=" text-md font-semibold"> Pictures : </p>
+			<p class=" text-md font-semibold"> <%= t('lessons.show.images') %> : </p>
 		
 		<div class="w-full grid grid-cols-1 md: grid-cols-3"> 
 			<% @lesson.lesson_pictures.each do |picture| %>	

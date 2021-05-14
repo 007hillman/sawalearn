@@ -16,7 +16,9 @@
   </head>
 
   <body>
-	<%= render 'layouts/navbar' %>
+
+		<%= render 'layouts/navbar' %>
+	
 	
 	<div class=" flex md:hidden">		
 			<div class="md:hidden ">
@@ -29,11 +31,23 @@
       				</svg> </p>
       			</div>
 		</div>	
-	<div class= " md:grid md:grid-cols-5">
-		<div id="left-pane" class=" hidden md:block border border-1  border-gray-100 bg-gray-900 text-white md:bg-white"><%= render 'layouts/leftpane' %></div>	
-		<div class=" col-span-3 border border-1 border-gray-100"><%= yield %></div>
+	<% if !current_user %>
+		<div class="">
+	<% else %>
+	<div class= " md:grid md:grid-cols-5 min-h-screen">
+	<% end %>
+	  <% if current_user %>
+			<div id="left-pane" class=" hidden md:block border border-1  border-gray-100 bg-gray-900 text-white md:bg-white"><%= render 'layouts/leftpane' %></div>	
+		<% end %>
+		<div class=" col-span-3 border border-1 border-gray-100 flex-grow"><%= yield %></div>
+
+		  <% if current_user %>
     		<div id = "right-pane" class="hidden border border-1 border-gray-100 md:block"><%= render 'layouts/rightpane' %></div>
+    	<% end %>
     	</div>
+    			<% if !current_user %>
+					<div class =" "> <%= render 'layouts/footer' %> </div>
+					<% end %>
 	
   </body>
   

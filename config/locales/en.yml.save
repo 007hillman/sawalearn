@@ -1,0 +1,18 @@
+
+en:
+  welcome:
+    search: "Search"
+    new-subject: "New Subject"
+    home: "Home"
+    achievements: "Archievements"
+    chat: "Chat"
+    about: "About"
+    all-subjects: "All Subjects"
+    sort: "Sort"
+    activity-feed: "Activity feed"
+    social: "Social"
+    add_lesson: "Add lesson"
+    show_lessons: "Show lessons"
+  navbar: 
+    hi: "Hi"
+    

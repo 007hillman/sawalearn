@@ -1,8 +1,8 @@
 <section class="mx-4 ">
-	<h1 class="text-center font-semibold text-xl">New Quiz</h1>
+	<h1 class="text-center font-semibold text-xl"> <%= t('quiz.new.new_quiz') %> </h1>
 
 	<%= render 'form', quiz: @quiz %>
 
-	<%= link_to 'Back', quizzes_path, class: "font-semibold rounded-md px-8 py-1" , style: "background-color: #ff3860; color: #ffe ;" %>
+	<%= link_to t('general_buttons.back')  , quizzes_path, class: "font-semibold rounded-md px-8 py-1" , style: "background-color: #ff3860; color: #ffe ;" %>
 	</div>
 </section>

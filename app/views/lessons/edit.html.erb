@@ -1,6 +1,5 @@
-<h1>Editing Lesson</h1>
+<h1 class="text-center mb-5 text-2xl "><%= t('lesson.edit.editing_lesson') %></h1>
 
 <%= render 'form', lesson: @lesson %>
 
-<%= link_to 'Show', @lesson %> |
-<%= link_to 'Back', lessons_path %>
+<%= link_to t('general_buttons.back') , lessons_path %>

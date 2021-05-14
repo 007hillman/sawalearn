@@ -1,4 +1,4 @@
-en:
+fr: 
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -10,17 +10,38 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+      
     labels:
       user:
-          email: "Email :"
-          password: "Password : "
-          locale: "Language"
+        email: "Adresse e-mail :"
+        password: "Mot de passe :"
+        remember_me: "Enregistrer mes données"
+        name: "Prenom"
+        surname: "Nom"
+        date_of_birth: "Date de naissance"
+        password_confirmation: "Confirmez le mot de passe"
+        region: "Région"
+        locale: "Langue"
+        school: "Etablissement scolaire"
+      subject:
+        name: "Nom du cours : "
+      lesson: 
+        name: "nom de la leçon : "
+        lesson_video: "Vidéo d'accompagnement"
+        lesson_pictures: "Images complémentaires"
+        subject: "cours parent"
+        new:
+          create: "Create"
       quiz:
         option1: "Option 1 : "
         option2: "Option 2 : "
         option3: "Option 3 : "
         option4: "Option 4 : "
-    #  defaults:
+        correct_response: "Réponse correcte"
+        lesson: "Leçon"
+    # Examples
+    # labels:
+    #   defaults:
     #     password: 'Password'
     #   user:
     #     new:
@@ -37,4 +58,3 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
-      

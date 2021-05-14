@@ -15,31 +15,30 @@
 
 		<% end %>
 		<% if current_user && current_user.admin %> 
-		<a href="<%= new_subject_path %>" ><div class="text-center hover:text-blue-400 text-sm border mx-2 border-2 font-semibold px-4 py-2 rounded-md ">New Subject </div></a>
-		<% end %>
+		<a href="<%= new_subject_path %>" ><div class="text-center hover:text-blue-400 text-sm border mx-2 border-2 font-semibold px-4 py-2 rounded-md text-blue-300 "> <%= t('leftpane.new_subject') %> </div></a>		<% end %>
 	</div>
 <div class="w-full text-md flex-grow items-center lg:w-auto  lg:block mt-2 lg:mt-0 z-20" >
 		<% if current_user %>
 				<ul class="flex flex-col  px-4 md:px-4">
 					<li class="mr-6 my-2 md:my-0">
                         <a href="/home" id="home" class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-green-300  border-0 hover:border-b-2  hover:border-blue-400">
-                            <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 ">Home</span>
+                            <i class="fas fa-home fa-fw mr-3 text-blue-400"></i><span class="pb-1 md:pb-0 "><%= t('leftpane.home') %></span>
                         </a>
                     </li>
 					 <li class="mr-6 my-2 md:my-0">
                         <a href="/achievements" class="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-green-300   hover:border-pink-400">
-                            <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 ">Achievements</span>
+                            <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 "> <%= t('leftpane.achievements') %></span>
                         </a>
                     </li> 
                     <li class="mr-6 my-2 md:my-0">
                         <a href="/chat" class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-green-300 hover:border-purple-400">
-                            <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 "> Chat
+                            <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 "> <%= t('leftpane.chat') %>
                             </span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
                         <a href="/about" class="block py-1 md:py-3 pl-1 align-middle  no-underline hover:text-green-300   hover:border-red-400">
-                            <i class="fa fa-question-circle fa-fw mr-3"></i><span class="pb-1 md:pb-0 ">About</span>
+                            <i class="fa fa-question-circle fa-fw mr-3"></i><span class="pb-1 md:pb-0 "> <%= t('leftpane.about') %></span>
                         </a>
                     </li>
 				</ul>
