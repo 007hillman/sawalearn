@@ -17,6 +17,7 @@ class User < ApplicationRecord
 	end
 #checking for a specific user's role
 	def is?( requested_role )
+		self.role = Role.find_by(name: "regular") if role.nil?
   	self.role.name  == requested_role.to_s
   end
 

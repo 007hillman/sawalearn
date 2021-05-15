@@ -15,7 +15,10 @@
 		<!-- loop through all the subjects and display them -->
 		<% @subject.each do |subject| %>
 			<div class="my-2 flex justify-between ">
-				<div class="font-semibold mb-1"> <%= subject.name %> </div>	
+				<div class="font-semibold mb-1"> 
+					<p> <%= subject.name %> </p>
+					<p > Status: <span class="bold text-blue-400 "><%= subject_status(subject.id) %></span> </p> 
+				</div>	
 				<div class=""> 
 				
 					<div class="block text-left ">
