@@ -1,54 +1,67 @@
 <section class= "min-h-screen bg-gray-50 pt-10">
-	<div class = " " > 
-		<ul class="grid grid-cols-1 md:grid-cols-4 ">
+	
+	<div class = " md:flex ">
+		<div class=" w-full md:w-1/12 "> 
+<!-- this is the side pane for the admin dashboard -->
+			<div class="h-full mx-3 my-3 rounded-md bg-gray-900 text-gray-50 px-2 py-3 flex flex-row md:block">
+				<%= link_to "Back", static_welcome_path, class: "block my-1 border border-2 border-gray-400 rounded-md md:h-10 text-center ", style: "color: #ccc" %>
+				 <%= link_to "Roles", dash_path,remote: true,  class: "block my-1 border border-2 border-gray-400 rounded-md md:h-10 text-center ", style: "color: #ccc" %> 
+			</div>
+		</div>
+
+<!-- next up is the main pane for the admin dashboard -->
+		<div class=" w-full ">
+			<div class = " " > 
+				<ul class="grid grid-cols-1 md:grid-cols-4 ">
 			
-			<li class="bg-gray-800 text-white mx-2 px-4 py-1 shadow border-2 border-white hover:bg-gray-900"> <a href="" style="color: white;">
-				<p  class= "font-semibold text-md" > <%= t('dash.number_of_users') %> : <span class=" text-xl font-bold"> <%= user_stat :total %></span> </p>
+					<li class="bg-white text-gray-900 mx-2 px-4 py-1 shadow border-2 border-red-500 hover:bg-gray-900"> <a href="" style: "">
+						<p  class= "font-semibold text-md" > <%= t('dash.number_of_users') %> : <span class=" text-xl font-bold"> <%= user_stat :total %></span> </p>
 					
-					<div class="grid grid-cols-2 mb-1">
-						<div class=" w-full text-left border-l-4  border-blue-400"><p> Students(<%= user_stat :student_number %>) </p> </div> 
-						<div class="w-full text-right  border-r-4  border-yellow-300"> <p> Lecturers(<%= user_stat :lecturer_number %>) </p> </div>
-					</div>
-					<div class=" flex w-full">
-    				<div class="bg-blue-400 text-xs leading-none h-3 text-center text-white" style="width: <%= user_stat :userspercentage %>%"><%= user_stat :userspercentage %> </div>
-						<div class="bg-yellow-300 text-xs leading-none h-3 text-center text-white" style="width: <%= user_stat :adminpercentage %>%"><%= user_stat :adminpercentage %> </div> 	
-					</div> </a>
-			</li>
+							<div class="grid grid-cols-2 mb-1">
+								<div class=" w-full text-left border-l-4  border-blue-400"><p> Students(<%= user_stat :student_number %>) </p> </div> 
+								<div class="w-full text-right  border-r-4  border-gray-700"> <p> Lecturers(<%= user_stat :lecturer_number %>) </p> </div>
+							</div>
+							<div class=" flex w-full">
+    						<div class="bg-blue-400 text-xs leading-none h-3 text-center text-white" style="width: <%= user_stat :userspercentage %>%"><%= user_stat :userspercentage %> </div>
+								<div class="bg-gray-700 text-xs leading-none h-3 text-center text-white" style="width: <%= user_stat :adminpercentage %>%"><%= user_stat :adminpercentage %> </div> 	
+							</div> </a>
+					</li>
 
-			<li class="bg-white mx-2 px-4 py-1 shadow border-2 border-white bg-gray-800 text-white"> <a href="" style="color: white;"> 
-        <p class= "font-semibold text-lg text-center"> <%= t('dash.number_of_subjects') %> </p>
-        <p class="text-center text-4xl font-hairline"><%= subject_stat :total %></p>
-					</a>
-      </li>
-			<li class="bg-white mx-2 px-4 py-1 shadow border-2 border-white bg-gray-800 text-white"> <a href="" style="color: white;">
-        <p class= "font-semibold text-md text-center text-lg"> <%= t('dash.number_of_lessons') %> </p>
-        <p class="text-center text-4xl font-bold"><%= lesson_stat :total %></p>
-					</a>
-      </li>		
-			<li class="bg-white mx-2 px-4 py-1 shadow border-2 border-white bg-gray-800 text-white"> <a href="" style="color: white;">
-        <p class= "font-semibold text-md text-center text-lg"> <%= t('dash.number_of_quizzes') %> </p>
-        <p class="text-center text-4xl font-bold"><%= quiz_stat :total %></p>
-				</a>
-      </li>
-		</ul>
-	</div>
+					<li class=" mx-2 px-4 py-1 shadow border-2 border-blue-500 bg-white text-gray-900 hover:bg-gray-900"> <a href="" style=""> 
+        		<p class= "font-semibold text-lg text-center"> <%= t('dash.number_of_subjects') %> </p>
+        		<p class="text-center text-4xl font-hairline"><%= subject_stat :total %></p>
+							</a>
+      		</li>
+					<li class=" mx-2 px-4 py-1 shadow border-2 border-yellow-400 bg-white text-gray-900 hover:bg-gray-900"> <a href="" style="">
+        		<p class= "font-semibold text-md text-center text-lg"> <%= t('dash.number_of_lessons') %> </p>
+        		<p class="text-center text-4xl font-bold"><%= lesson_stat :total %></p>
+							</a>
+      		</li>		
+					<li class="bg-white mx-2 px-4 py-1 shadow border-2 border-green-500  text-gray-900 hover:bg-gray-900"> <a href="" style="">
+        		<p class= "font-semibold text-md text-center text-lg"> <%= t('dash.number_of_quizzes') %> </p>
+        		<p class="text-center text-4xl font-bold"><%= quiz_stat :total %></p>
+						</a>
+      		</li>
+				</ul>
+			</div>
 <!-- second level of admin dashboard-->
-	<div class=" grid grid-cols-3 mx-4 mt-4 ">
-		<div class=" border-2 border-gray-200 px-2 "> 
-			<p class="font-bold mb-2" > all users: </p>
-			<% User.all.each do |user| %>
-		<hr>
-				<div>
-					<%= user.name %>
+			<div class=" grid grid-cols-3 mx-4 mt-4 ">
+				<div class=" border-2 border-gray-200 px-2 "> 
+					<p class="font-bold mb-2" > all users: </p>
+					<% User.all.each do |user| %>
+				<hr>
+						<div>
+							<%= user.name %>
+						</div>
+					<%end%>
 				</div>
-			<%end%>
-		</div>
-		<div class=" border-2 border-gray-200 px-2">
-			 <p class="font-bold mb-2" > Activities: </p>
-		</div>
-		<div class=" border-2 border-gray-200 px-2">
-       <p class="font-bold mb-2" > Notifications: </p>
-    </div>
-
+				<div class=" border-2 border-gray-200 px-2">
+			 		<p class="font-bold mb-2" > Activities: </p>
+				</div>
+				<div class=" border-2 border-gray-200 px-2">
+       		<p class="font-bold mb-2" > Notifications: </p>
+    		</div>
+			</div>
 	</div>
+</div>
 </section>
