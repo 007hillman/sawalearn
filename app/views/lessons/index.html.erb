@@ -11,7 +11,7 @@
     			<div class=" w-full  my-2 grid grid-cols-1 md:grid-cols-2 ">
 		  			<div class="font-semibold mb-1 "> <%= lesson.name %> </div>
 		    		<div class=" grid grid-cols-3 ">
-							<%= link_to t('lesson.index.start') , lesson_path(id: lesson.id, less_id: lesson.id ) , class: " text-blue-400 block px-4 text-left mx-1 border border-2 border-blue-300  rounded-sm hover:bg-blue-100 ", style: "color: rgb(96, 165, 250);" %>
+							<%= link_to lesson_status(lesson.id) == "started" ? t('lesson.show.continue'): t('lesson.index.start') , lesson_path(id: lesson.id, less_id: lesson.id ) , class: " text-blue-400 block px-4 text-left mx-1 border border-2 border-blue-300  rounded-sm hover:bg-blue-100 ", style: "color: rgb(96, 165, 250);" %>
 							<% if current_user && current_user.admin %>
 		      			<%= link_to t('general_buttons.edit'), edit_lesson_path(lesson.id) , class: " text-green-400 border border-2 border-green-400 text-center block mx-1 hover:bg-green-100 hover:text-green-600" %>
 								<%= link_to t('lesson.index.delete_lesson') , lesson_path(lesson.id)  ,method: :delete ,  class: " border border-4 border-red-400 border-red-400 block text-right  mx-1 px-4 hover:bg-red-200 ", style: "color: rgb(248, 113, 113);" %>
@@ -19,6 +19,12 @@
 						</div>
 					</div>
 					<div class=""> status: <span class="font-semibold text-blue-400 "><%= lesson_status(lesson.id) %></span> </div>
+
+					<div class="h-1 relative max-w-xl rounded-full overflow-hidden">
+              <div class="w-full h-full bg-gray-200  absolute"></div>
+              <div id="bar" class="h-full bg-<%= lesson_status_colour(lesson.id)%> relative text-gray-900" style="width: <%= lesson_completion_percent(lesson.id)%>%"> </div>
+          </div>
+
 					<hr>
 				</div>
 			<% end %>

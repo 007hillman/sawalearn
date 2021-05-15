@@ -15,7 +15,7 @@
 
 		<% end %>
 			<% if current_user.is? :admin %>
-			<%= link_to "Dashboard" , dash_path, class: "border border-2 border-gray-800 px-8 py-2 block mx-2 text-center uppercase bg-gray-800" %>
+			<%= link_to t('leftpane.statistics') , dash_path, class: "border border-2 border-gray-800 px-8 py-2 block mx-2 mb-2  text-center uppercase bg-gray-800", style: "color: #ccc;" %>
 		<% end %>
 		<% if current_user && current_user.admin %> 
 		<a href="<%= new_subject_path %>" ><div class="text-center hover:text-blue-400 text-sm border mx-2 border-2 font-semibold px-4 py-2 rounded-md text-blue-300 "> <%= t('leftpane.new_subject') %> </div></a>		<% end %>

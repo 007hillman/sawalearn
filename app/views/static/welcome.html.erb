@@ -1,4 +1,4 @@
-
+<%= javascript_pack_tag 'welcome' %>
 <section class ="">
 	
 </section>
@@ -45,7 +45,7 @@
 			</div>
 			<div class="h-1 relative max-w-xl rounded-full overflow-hidden">
         			<div class="w-full h-full bg-gray-200  absolute"></div>
-        			<div id="bar" class="h-full bg-green-500 relative w-0"></div>
+        			<div id="bar" class="h-full bg-<%= status_colour(subject.id)%> relative text-gray-900" style="width: <%= subject_completion_percent(subject.id)%>%"> </div>
     			</div>
 			<hr>
 		<% end %>
@@ -53,18 +53,5 @@
 </section>
 
 <script>
-
-$(function() {
-    $('.submenu').on(' click', function() {
-        $(this).children().toggleClass('hidden');
-         $(this).children().toggleClass('z-10');
-    });
-});
-
-$(function() { 
-	    $('.sub').on('click', function(){
-        
-        });
-});
 
 </script>

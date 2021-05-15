@@ -3,6 +3,7 @@ fr:
   welcome:  
     speech: "Une application d'apprentissage interactive pour les étudiants des collèges camerounais"
     all-subjects: "Tous les cours"
+    status: "statut"
     sort: "Trier"
     activity_feed: "Activités"
     no_activity: "Accun activite"
@@ -28,6 +29,7 @@ fr:
     achievements: "réalisations"
     chat: "Discussion"
     about: "A propos"
+    statistics: "statistiques"
   login: 
     login: "Connexion"
     login_button: "Ce connecter"
@@ -81,5 +83,5 @@ fr:
     number_of_lessons: "Leçons"
     number_of_subjects: "Cours"
     number_of_quizzes: "Quiz"
-  
-
+  helpers:
+    started: "a débuté"

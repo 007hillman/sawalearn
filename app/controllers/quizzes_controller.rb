@@ -6,25 +6,34 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all.where(lesson_id: current_lesson.id)
   end
 	def restart
-	UserLessonQuiz.purge(current_lesson.id)
-	session[:quiz_index] = 0
-	redirect_to lesson_path(id: current_lesson.id)
+		UserLessonQuiz.purge(current_lesson.id)
+		ul = UserLesson.find_by(lesson_id: current_lesson.id)
+		ul.status = "started"
+		ul.save
+		us = UserSubject.find_by(subject_id: current_subject.id)
+		us.status = "started"
+		us.save
+		session[:quiz_index] = 0
+		redirect_to lesson_path(id: current_lesson.id)
 	end
   # GET /quizzes/1 or /quizzes/1.json
   def show
-	if next_quiz == 0
-          redirect_to quizzes_path
-		session[:quiz_index] = 0
-	else
-		@quiz = Quiz.find(next_quiz)
-		if @quiz == nil
-			session[:quiz_index] = 0 
+		if next_quiz == 0
+    	redirect_to quizzes_path
+			session[:quiz_index] = 0
+			user_lesson = UserLesson.find_by(lesson_id: current_lesson.id)
+			user_lesson.status = "completed"
+			user_lesson.save
 		else
-			if UserLessonQuiz.check_presence(@quiz.id).empty?
-				UserLessonQuiz.create(user_id: current_user.id, lesson_id: current_lesson.id, quiz_id: @quiz.id)
+			@quiz = Quiz.find(next_quiz)
+			if @quiz == nil
+				session[:quiz_index] = 0 
+			else
+				if UserLessonQuiz.check_presence(@quiz.id).empty?
+					UserLessonQuiz.create(user_id: current_user.id, lesson_id: current_lesson.id, quiz_id: @quiz.id)
+				end
 			end
 		end
-	end
   end
 
   # GET /quizzes/new
