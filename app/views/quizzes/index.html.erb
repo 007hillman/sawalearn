@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 <section class=" mx-4">
 	<div class= "flex justify-between  py-4">
-		    <%= link_to t('general_buttons.back') , lesson_path(current_lesson) , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200" , style: "background-color: #ff3860; color: #fff;" %>
-		    <% if current_user && current_user.admin %> <%= link_to  t('quiz.show.new_quiz') , new_quiz_path,  class: "font-semibold block rounded-md px-8 py-1 bg-green-400" , style: "color: #ffe ;" %> <% end %>
+		    <%= link_to t('general_buttons.back') , lesson_path(current_lesson) , class: "font-semibold block px-8 py-1 rounded-md hover:bg-red-200" , style: "border: #ff3860 1px solid; color: #ff3860;" %>
+		    
 		</div>
 
 	<h1 class="text-center text-xl font-semibold "> <%= t('quiz.index.results') %> </h1>

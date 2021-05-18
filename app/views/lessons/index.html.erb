@@ -19,13 +19,13 @@
 						</div>
 					</div>
 					<div class=""> status: <span class="font-semibold text-blue-400 "><%= lesson_status(lesson.id) %></span> </div>
-
-					<div class="h-1 relative max-w-xl rounded-full overflow-hidden">
+				<div class="flex">
+					<div class="h-1 relative max-w-xl rounded-full w-full  overflow-hidden">
               <div class="w-full h-full bg-gray-200  absolute"></div>
               <div id="bar" class="h-full bg-<%= lesson_status_colour(lesson.id)%> relative text-gray-900" style="width: <%= lesson_completion_percent(lesson.id)%>%"> </div>
           </div>
-
-					<hr>
+					<div class="pl-4"> <%=lesson_completion_percent(lesson.id) %>% </div>
+				</div>
 				</div>
 			<% end %>
 		<% end %>

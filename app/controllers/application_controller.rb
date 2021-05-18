@@ -33,7 +33,7 @@ before_action :set_locale
 	end
 
 	def check_for_restart
-		UserLessonQuiz.where(lesson_id: current_lesson.id).first
+		UserLessonQuiz.where(lesson_id: current_lesson.id , completed: "true").first
 	end
 	def get_verdict (q_id)
 		UserLessonQuiz.where(quiz_id: q_id, user_id: current_user.id, lesson_id: current_lesson.id)[0].verdict

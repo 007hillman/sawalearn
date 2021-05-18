@@ -42,7 +42,7 @@ fr:
     show:
       create_quiz: "créer un quiz"
       no_quizzes: "pas encore de quiz"
-      next: "Suivante"
+      next: "Quiz"
       continue: "Continuez"
       restart: "Redémarrer"
       delete_lesson: "Supprimer ce leçons"

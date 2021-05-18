@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # using internationalization gem
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2
+gem 'mini_magick'
 gem 'rails-i18n'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

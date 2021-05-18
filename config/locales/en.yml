@@ -41,7 +41,7 @@ en:
     show:
       create_quiz: "Create quiz"
       no_quizzes: "No quizzes yet"
-      next: "Next"
+      next: "Quiz"
       continue: "Continue"
       restart: "Restart evaluation"
       delete_lesson: "Delete lesson"
