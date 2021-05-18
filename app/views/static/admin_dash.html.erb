@@ -45,20 +45,20 @@
 				</ul>
 			</div>
 <!-- second level of admin dashboard-->
-			<div class=" grid grid-cols-3 mx-4 mt-4 ">
-				<div class=" border-2 border-gray-200 px-2 "> 
+			<div class=" grid grid-cols-1 md:grid-cols-3 mx-4 mt-4  ">
+				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white "> 
 					<p class="font-bold mb-2" > all users: </p>
 					<% User.all.each do |user| %>
 				<hr>
-						<div>
-							<%= user.name %>
+						<div class=" flex justify-between">
+							<div><%= user.name %></div> <div><%= user.role.name %> </div>
 						</div>
 					<%end%>
 				</div>
-				<div class=" border-2 border-gray-200 px-2">
+				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white">
 			 		<p class="font-bold mb-2" > Activities: </p>
 				</div>
-				<div class=" border-2 border-gray-200 px-2">
+				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white">
        		<p class="font-bold mb-2" > Notifications: </p>
     		</div>
 			</div>

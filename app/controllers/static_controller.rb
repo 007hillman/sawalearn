@@ -1,8 +1,10 @@
 class StaticController < ApplicationController
 
   def welcome
-	@subject = Subject.all
-	 @activity = active
+  	
+		@subject = Subject.all
+		@activity = active
+		render layout: "empty_layout"
   end
   def about
 	 @activity = active

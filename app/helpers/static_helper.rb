@@ -27,4 +27,7 @@ module StaticHelper
 			return("green-500")
 		end
 	end
+ 	def lesson_count(sub_id)
+		Lesson.where(subject_id: sub_id).count
+	end
 end

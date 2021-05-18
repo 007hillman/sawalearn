@@ -1,34 +1,38 @@
 <%= javascript_pack_tag 'welcome' %>
-<section class ="">
-	
+<section class =" ">
+<%= render "layouts/navbar" %>	
 </section>
-<section class="w-full">
-	<div class=" mx-4 md:mx-10 ">
+<section class="w-full bg-gray-50 min-h-screen">
 
-		<div class=" w-full flex justify-between py-2">
-			<div class="font-bold text-gray-900 text-lg"> <%= t('welcome.all-subjects') %> </div>
-			<div class=""><button class="border border-2 border-gray-200 px-4 py-1"><%= t('welcome.sort')%></button> </div>
-		</div>
-	</div> <hr>
-
-	<div class=" block  mt-4 mx-10">
+		<div class="w-full">
+			<div class=" px-4 md:px-10 bg-white">
+			    <div class=" w-full flex justify-between py-2 ">
+			      <div class="font-bold text-gray-900 text-xl"> <%= t('welcome.all-subjects') %> </div>
+			      <div class=""><button class="border border-2 border-gray-200 px-4 py-1"><%= t('welcome.sort')%></button> </div>
+			    </div>
+			  </div> <hr>
+		<div class=" grid grid-cols-1  md:flex md:flex-row ">
+			<div class=" w-full md:w-1/12 flex flex-row md:block pl-3 pt-6 "> <%= render "layouts/darkleftpane" %> </div>
+			<div class="w-full">
+				<div class="block  mt-4 mr-10 ml-2 grid grid-cols-1 md:block md:flex  md:flex-row w-full">
 		<!-- loop through all the subjects and display them -->
-		<% @subject.each do |subject| %>
-			<div class="my-2 flex justify-between ">
-				<div class="font-semibold mb-1"> 
-					<p> <%= subject.name %> </p>
-					<p > Status: <span class="bold text-blue-400 "><%= subject_status(subject.id) %></span> </p> 
-				</div>	
-				<div class=""> 
-				
-					<div class="block text-left ">
-						<div>
-		    					<button type="button" class=" submenu relative inline-flex  justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-indigo-500" id="menu-button"  >
+				<% @subject.each do |subject| %>
+					<div class="my-2  w-full md:w-1/4 bg-white shadow flex-none  mx-2 px-4 py-2">
+						<div class="flex  justify-between">
+							<div class=" mb-1 "> 
+								<p class="text-lg font-hairline"> <%= subject.name %> </p>
+					<br />
+								<p > Status: <% if subject_status(subject.id)!="" %> <span class="font-bold text-white bg-purple-500 px-1 rounded-sm  "><%= subject_status(subject.id) %></span> <% end %>  </p>
+								<p > number of lessons : <span class="font-bold"> <%= lesson_count(subject.id) %> </span>
+				<br /> 
+							</div>	
+						<div class="block text-left ">
+						
+		    			<button type="button" class=" submenu relative inline-flex  justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-indigo-500" id="menu-button"  >
 		      <!-- Heroicon name: solid/chevron-down -->
 		      						<svg class="-mr-1 ml-2 h-5 w-5 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-									<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-
-		     						</svg>
+												<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+											</svg>
 			     						<div class=" sub  hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
 			    							<div class="py-1  " role="none ">
 											<div class =""><% if current_user && current_user.admin %>
@@ -38,20 +42,20 @@
 			    							</div>
 			  						</div>		      
 		    					</button>
-		    				</div>
-		    	  
-					</div>
-				</div>					
-			</div>
+					</div>	
+
+			</div> 
+			 <br />
+			<div class=""> <%= link_to "Get Started", lessons_path(sub_id: subject.id), class: "block w-full mr-2 mb-3 text-center py-1 bg-blue-400 font-semibold ", style: "color: white;"%> </div>
+					
 			<div class="h-1 relative max-w-xl rounded-full overflow-hidden">
         			<div class="w-full h-full bg-gray-200  absolute"></div>
-        			<div id="bar" class="h-full bg-<%= status_colour(subject.id)%> relative text-gray-900" style="width: <%= subject_completion_percent(subject.id)%>%"> </div>
-    			</div>
-			<hr>
+        			<div id="bar" class="h-full bg-<%= status_colour(subject.id)%> relative text-gray-900" style="width: <%= subject_completion_percent(subject.id)%>%"> </div>	
+    	</div>	
+		</div>
 		<% end %>
-	</div>
+		</div>
+			</div>		
+		</div>
 </section>
 
-<script>
-
-</script>
