@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 		get '/passed', to: 'analysis#passed'
 		get '/dash', to: 'static#admin_dash'
 		get '/failed', to: 'analysis#failed'
+
+		get '/dash/user', to: 'static#info'
 	  get 'static/landing_page', to: 'static#landing_page'
 	  root 'static#landing_page'
 	default_url_options :host => "www.gmail.com"

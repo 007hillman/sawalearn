@@ -30,4 +30,10 @@ class StaticController < ApplicationController
 		@activity = active
 		render :layout => "empty_layout"
 	end
+
+	def info
+		respond_to do |format|
+			format.js
+		end		
+	end
 end
