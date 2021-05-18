@@ -1,13 +1,7 @@
 <section class= "min-h-screen bg-gray-50 pt-10">
 <h1 class=" text-center text-4xl font-bold mb-5"> <%= t('leftpane.statistics') %></h1>	
 	<div class = " md:flex ">
-		<div class=" w-full md:w-1/12 "> 
-<!-- this is the side pane for the admin dashboard -->
-			<div class="h-full mx-3 my-3 rounded-md bg-gray-900 text-gray-50 px-2 py-3 flex flex-row md:block">
-				<%= link_to "Back", static_welcome_path, class: "block my-1 border border-2 border-gray-400 rounded-md md:h-10 text-center ", style: "color: #ccc" %>
-				 <%= link_to "Roles", dash_path,remote: true,  class: "block my-1 border border-2 border-gray-400 rounded-md md:h-10 text-center ", style: "color: #ccc" %> 
-			</div>
-		</div>
+		<%= render "layouts/darkleftpane" %>
 
 <!-- next up is the main pane for the admin dashboard -->
 		<div class=" w-full ">
