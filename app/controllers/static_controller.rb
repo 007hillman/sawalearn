@@ -14,7 +14,10 @@ class StaticController < ApplicationController
   end
 	def admin_dash
 		@activity = active
-		render layout: "empty_layout" 
+		respond_to do |format|
+			format.js {render layout: false}
+			format.html { render layout: "empty_layout" }
+		end	
 	end
   def achievements
 	 @activity = active
@@ -31,9 +34,4 @@ class StaticController < ApplicationController
 		render :layout => "empty_layout"
 	end
 
-	def info
-		respond_to do |format|
-			format.js
-		end		
-	end
 end

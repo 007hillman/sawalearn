@@ -47,10 +47,10 @@
 					<% User.all.each do |user| %>
 				<hr>
 					<% if user!= nil %>
-					<p >
+					<a href="/dash" data-remote="true">
 						<div class=" flex justify-between hover:text-gray-100 hover:bg-gray-800">
 							<div><%= user.name %></div> <div><%= user.role.name %> </div>
-						</div> </p> <% end %>
+						</div> </a> <% end %>
 					<%end%>
 				</div>
 				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white">
@@ -64,3 +64,6 @@
 	</div>
 </div>
 </section>
+<script>
+
+</script>
