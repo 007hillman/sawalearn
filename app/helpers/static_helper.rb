@@ -4,8 +4,8 @@ module StaticHelper
 		number = 0
 		lessons = Lesson.where(subject_id: sub_id)
 		lessons.each do |lesson|
-			if !lesson.quizzes.empty?
-				number+=1
+			if lesson.quizzes.count != 0
+				number = number + 1
 			end
 		end
 		return (number)

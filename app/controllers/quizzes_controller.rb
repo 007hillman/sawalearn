@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all.where(lesson_id: current_lesson.id)
   end
 	def restart
-		UserLessonQuiz.purge(current_lesson.id)
+		UserLessonQuiz.where(lesson_id: current_lesson.id).delete_all
 		ul = UserLesson.find_by(lesson_id: current_lesson.id)
 		ul.status = "started"
 		ul.save
