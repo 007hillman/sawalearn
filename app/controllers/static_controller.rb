@@ -14,17 +14,24 @@ class StaticController < ApplicationController
   end
 	def admin_dash
 		@activity = active
+		@user = nil
+		if params[:id]
+			if params[:admin_dash]
+				user = User.find(params[:id])
+				user.role = Role.find(params[:admin_dash][:role_id])
+				user.save
+			end
+				@user = User.find(params[:id])
+		end
 		respond_to do |format|
-			format.js {render layout: false}
 			format.html { render layout: "empty_layout" }
 		end	
 	end
   def achievements
 	 @activity = active
   end
-  def info
-	@activity = active
-	@user = User.find(params[:id])
+  def usermore
+		@activity = active
   end
 	def active
 		Activity.all.where(user_id: current_user.id).order( "created_at DESC" ).first(4)

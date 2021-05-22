@@ -41,26 +41,31 @@
 				</ul>
 			</div>
 <!-- second level of admin dashboard-->
+			  <% if @user %> 
+          <%= render "usermore" %>
+        <% else %>
 			<div class=" grid grid-cols-1 md:grid-cols-3 mx-4 mt-4  ">
-				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white "> 
-					<p class="font-bold mb-2" > all users: </p>
-					<% User.all.each do |user| %>
-				<hr>
-					<% if user!= nil %>
-					<a href="/dash" data-remote="true">
-						<div class=" flex justify-between hover:text-gray-100 hover:bg-gray-800">
-							<div><%= user.name %></div> <div><%= user.role.name %> </div>
-						</div> </a> <% end %>
-					<%end%>
+					<div class=" border-2 border-gray-200 px-2 mb-3 bg-white "> 
+						<p class="font-bold mb-2" > all users: </p>
+						<% User.all.each do |user| %>
+					<hr>
+						<% if user!= nil %>
+						<a href="<%= dash_path(id: user.id) %>" >
+							<div class=" flex justify-between hover:text-gray-100 hover:bg-gray-800">
+								<div><%= user.name %></div> <div><%= user.role.name %> </div>
+							</div> </a> <% end %>
+						<%end%>
+					</div>
+					<div class=" border-2 border-gray-200 px-2 mb-3 bg-white">
+			 			<p class="font-bold mb-2" > Activities: </p>
+						<p > </p>
+					</div>
+					<div class=" border-2 border-gray-200 px-2 mb-3 bg-white" id="unique_id">
+       			<p class="font-bold mb-2" > Notifications: </p>
+    			</div>
+				
 				</div>
-				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white">
-			 		<p class="font-bold mb-2" > Activities: </p>
-					<p > </p>
-				</div>
-				<div class=" border-2 border-gray-200 px-2 mb-3 bg-white" id="unique_id">
-       		<p class="font-bold mb-2" > Notifications: </p>
-    		</div>
-			</div>
+			<% end %>
 	</div>
 </div>
 </section>

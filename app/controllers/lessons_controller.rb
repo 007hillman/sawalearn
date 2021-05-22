@@ -8,6 +8,7 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1 or /lessons/1.json
   def show
+  @data = "hello hillman"
 		UserLesson.create(user_id: current_user.id, lesson_id: params[:id], status: "started") if UserLesson.find_by(lesson_id: params[:id]) == nil
 		UserSubject.create(user_id: current_user.id, subject_id: current_subject.id, status: "started") if UserSubject.find_by(subject_id: current_subject.id) == nil
   end

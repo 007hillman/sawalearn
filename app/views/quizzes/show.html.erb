@@ -1,6 +1,7 @@
 
 
 <p id="notice"><%= notice %></p>
+<%== pagy_nav(@pagy) %>
 <section class=" mt-5">
 	<div class= "grid grid-cols-4  md:px-2 border bordder-2 border-gray-200">
 		    <%= link_to t('general_buttons.back'), lesson_path(current_lesson) , class: "font-semibold block text-center py-1  hover:bg-red-100" , style: " color: #ff3860; border: 1px solid #ff3860"; %>

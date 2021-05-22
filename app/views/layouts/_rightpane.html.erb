@@ -5,6 +5,7 @@
 		<hr>
 		<% if @activity == nil %>
 			<p> <%= t('welcome.no_activity') %> </p>
+			<p> <%= @data %> </p>
 		<% else %>
 			<% @activity.each do |activity| %>
 				<div class=" my-2">
