@@ -4,7 +4,7 @@
 		<div class="col-span-3">
 			<div class= "flex pb-5"> 
 		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 "> <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, lesson_path(current_lesson), style: "color: #fff;" %> </div>
-		<h1 class="text-xl w-full text-center border-2 border-gray-300 ">Quiz : <%= t('quiz.index.results') %></h1>
+		<h1 class="text-xl w-full text-center border-2 border-gray-300 "> <%= t('quiz.index.results') + ": " + current_lesson.name %></h1>
 		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 hidden"> <%= link_to '<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>'.html_safe, quiz_path(next_quiz), style: "color: #fff;" %> </div>
 	</div>
 
