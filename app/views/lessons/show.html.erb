@@ -1,33 +1,37 @@
 <%= javascript_pack_tag 'lesson' %>
 
-<section class=" ">
-<div class="grid grid-cols-1 md:grid-cols-4">
-	<div class="col-span-3 px-10 py-4">
-	<p id="notice"><%= notice %></p>
-		<% if current_user && current_user.admin && check_for_restart %>
-		<div class= "grid grid-cols-4   py-4">
-		<% else %>
-		<div class= "  grid grid-cols-3 py-4">
-		<% end %>
-			<%= link_to t('general_buttons.back'), lessons_path , class: "font-semibold block px-8 py-1  hover:bg-red-200", style: "border: 2px solid #ff3860; color: #ff3860;" %>
-			<% if current_user && current_user.admin %> <%= link_to t('general_buttons.edit'), edit_lesson_path(@lesson), class: "font-semibold block px-8 py-1 border border-4 border-green-400 text-center hover:bg-green-200", style: "color: #22ab46;" %>   <% end %>
-			<% if check_for_restart %>
-	       <%= link_to t('lessons.show.restart'), quiz_restart_url , class: "block w-full border border-2 border-purple-400 text-center"%>    <% end %>
-			<% if check_quiz.empty? %>
-				<% if current_user.admin %>
-					<%= link_to t('lessons.show.create_quiz'),new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
-				<% else %>
-					<div class=" "> <%= t('lessons.show.no_quizzes') %>  </div>
-				<% end %>
+<section class="w-full md:w-4/5 mt-5">
+	<div class= "flex"> 
+		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 "> <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, static_welcome_path, style: "color: #fff;" %> </div>
+		<h1 class="text-xl w-full text-center border-2 border-gray-300 "><%= @lesson.name %></h1>
+		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 "> <%= link_to '<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>'.html_safe, quiz_path, style: "color: #fff;" %> </div>
+	</div>
+	<div class="grid grid-cols-1 md:grid-cols-3">
+		<div class="col-span-3 px-10 py-4">
+			<p id="notice"><%= notice %></p>
+			<% if current_user && current_user.admin && check_for_restart %>
+			<div class= "grid grid-cols-3   py-4">
 			<% else %>
-				<% if !finished_quizzes?(@lesson.id) %>
-					<% if !check_for_restart %>
-						<%= link_to t('lessons.show.next') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
-					<%else%>
-						<%= link_to t('lessons.show.continue') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
-					<%end%>
-				<%end%>	
+			<div class= "  grid grid-cols-2 py-4">
 			<% end %>
+				<% if current_user && current_user.admin %> <%= link_to t('general_buttons.edit'), edit_lesson_path(@lesson), class: "font-semibold block px-8 py-1 border border-4 border-green-400 text-center hover:bg-green-200", style: "color: #22ab46;" %>   <% end %>
+				<% if check_for_restart %>
+	       <%= link_to t('lessons.show.restart'), quiz_restart_url , class: "block w-full border border-2 border-purple-400 text-center"%>    <% end %>
+				<% if check_quiz.empty? %>
+					<% if current_user.admin %>
+						<%= link_to t('lessons.show.create_quiz'),new_quiz_path , class: "block bg-green-600 px-8 py-1 font-semibold " , style: "color: #fff;"%>
+					<% else %>
+						<div class=" "> <%= t('lessons.show.no_quizzes') %>  </div>
+					<% end %>
+				<% else %>
+					<% if !finished_quizzes?(@lesson.id) %>
+						<% if !check_for_restart %>
+							<%= link_to t('lessons.show.next') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
+						<%else%>
+							<%= link_to t('lessons.show.continue') , quiz_path() , class: "font-semibold  block px-8 py-1 text-right border border-4 border-blue-400 text-blue-400 hover:bg-blue-100 ", style: "color: #2116df;" %> 
+						<%end%>
+					<%end%>	
+				<% end %>
 		</div>
 
 		<div class="grid  md:grid-cols-1 "> 

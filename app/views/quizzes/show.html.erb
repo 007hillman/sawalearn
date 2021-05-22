@@ -1,10 +1,14 @@
 
 
 <p id="notice"><%= notice %></p>
-<%== pagy_nav(@pagy) %>
-<section class=" mt-5">
-	<div class= "grid grid-cols-4  md:px-2 border bordder-2 border-gray-200">
-		    <%= link_to t('general_buttons.back'), lesson_path(current_lesson) , class: "font-semibold block text-center py-1  hover:bg-red-100" , style: " color: #ff3860; border: 1px solid #ff3860"; %>
+<section class=" mt-5 w-4/5">
+
+<div class= "flex"> 
+		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 "> <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, lesson_path(current_lesson), style: "color: #fff;" %> </div>
+		<h1 class="text-xl w-full text-center border-2 border-gray-300 ">Quiz : <%= quiz_number(current_lesson.id).to_s + "/" + current_lesson.quizzes.count.to_s  %></h1>
+		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 hidden"> <%= link_to '<i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>'.html_safe, quiz_path(next_quiz), style: "color: #fff;" %> </div>
+	</div>
+	<div class= "grid grid-cols-3  md:px-2 border bordder-2 border-gray-200 mt-3">
 		    <% if current_user && current_user.admin %> 
 			<%= link_to  t('quiz.show.new_quiz'), new_quiz_path,  class: "font-semibold block text-center py-1 hover:bg-green-50" , style: "color: #00d1b1 ; border: 1px solid #00d1b1" %> 
 			<%= link_to t('general_buttons.edit'), edit_quiz_path(@quiz) , class: "block text-center font-semibold border border-2 border-gray-700 hover:bg-gray-100 hover:text-gray-900 "%> 
@@ -35,7 +39,7 @@
         <p class="correct text-lg text-green-400 hidden"> <%= t('quiz.show.correct') %> </p>
 
 		</div>
-		<%= link_to t('lessons.show.next') , quiz_path( next_quiz), class: "hidden block bg-blue-400 font-semibold rounded-md px-8 py-1 ", style: "color: white;", id: "next-button" %> </div>
+		<%= link_to t('lessons.show.next') , quiz_path( next_quiz), class: "hidden next-button block bg-blue-400 font-semibold rounded-md px-8 py-1 ", style: "color: white;" %> </div>
 		<div class="">	
 		</div>
 
@@ -51,7 +55,7 @@ $(document).ready(function(){
 		console.log(selected_value);
             $('#btn').click(function(){
 				$(this).toggleClass("hidden");
-				$('#next-button').toggleClass("hidden");
+				$('.next-button').toggleClass("hidden");
             	if (selected_value ==  "<%= escape_javascript @quiz.correct_response_text %>") {
             		$('.correct').toggleClass("hidden");
 					$.ajax({

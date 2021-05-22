@@ -1,13 +1,16 @@
 <p id="notice" class="block w-full  font-bold text-lg py-2 text-center "><%= notice %></p>
 <section class="">
-	<h1 class="text-center text-xl font bold w-full "> <%= t('lesson.index.all_lessons') %></h1>
+	<div class="flex">
+		<div class="rounded-1/2 h-8 w-7 bg-gray-900 text-white px-1 "> <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, static_welcome_path, style: "color: #fff;" %> </div>
+		<h1 class="text-center text-xl font bold border-2 border-gray-300 w-4/5 "> <%= t('lesson.index.all_lessons') %></h1>
+	</div>
 	<div class=" block  mt-4 mx-10">
 <!-- loop through all the subjects and display them -->
 		<% if @lessons.empty? %>
 			<p> No lessons created for this subject yet </p>
 		<% else %>
     	<% @lessons.each do |lesson| %>
-				<div class=" w-full ">
+				<div class=" w-4/5 ">
     			<div class=" w-full  my-2 grid grid-cols-1 md:grid-cols-2 ">
 		  			<div class="font-semibold mb-1 "> <%= lesson.name %> </div>
 		    		<div class=" grid grid-cols-3 ">
